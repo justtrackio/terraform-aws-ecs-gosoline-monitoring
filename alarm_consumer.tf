@@ -5,11 +5,15 @@ module "alarm_consumer" {
 
   source = "./terraform-aws-ecs-alarm-consumer"
   #version = "2.2.0"
-  context = module.this.context
 
+  alarm_description      = var.alarm_consumer.alarm_description
+  alarm_topic_arn        = var.alarm_topic_arn
   consumer_name          = each.value.metadata.name
   datapoints_to_alarm    = var.alarm_consumer.datapoints_to_alarm
   evaluation_periods     = var.alarm_consumer.evaluation_periods
   period                 = var.alarm_consumer.period
   success_rate_threshold = var.alarm_consumer.success_rate_threshold
+
+  label_orders = var.label_orders
+  context      = module.this.context
 }

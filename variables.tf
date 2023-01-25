@@ -6,6 +6,7 @@ variable "alarm_create" {
 
 variable "alarm_consumer" {
   type = object({
+    alarm_description      = optional(string)
     datapoints_to_alarm    = optional(number, 1)
     evaluation_periods     = optional(number, 1)
     period                 = optional(number, 60)
@@ -17,6 +18,7 @@ variable "alarm_consumer" {
 
 variable "alarm_gateway" {
   type = object({
+    alarm_description      = optional(string)
     datapoints_to_alarm    = optional(number, 3)
     evaluation_periods     = optional(number, 3)
     period                 = optional(number, 60)
@@ -28,6 +30,7 @@ variable "alarm_gateway" {
 
 variable "alarm_kinsumer" {
   type = object({
+    alarm_description        = optional(string)
     datapoints_to_alarm      = optional(number, 1)
     evaluation_periods       = optional(number, 1)
     period                   = optional(number, 60)
@@ -35,6 +38,12 @@ variable "alarm_kinsumer" {
   })
   default     = {}
   description = "This can be used to override alarms for kinsumers. Keys are names of the kinsumers."
+}
+
+variable "alarm_topic_arn" {
+  type        = string
+  description = "The ARN of the SNS topic to receive the alerts"
+  default     = null
 }
 
 variable "elasticsearch_data_stream_create" {
