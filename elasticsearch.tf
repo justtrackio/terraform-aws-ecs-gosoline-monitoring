@@ -9,7 +9,7 @@ module "elaticsearch_label" {
 
 locals {
   elasticsearch_create_objects              = var.elasticsearch_data_stream_create ? 1 : 0
-  elasticsearch_index_lifecycle_policy_name = "${local.elasticsearch_index_template_name}_policy" # name is predefined by fluentd's elasticsearch datastreams plugin
+  elasticsearch_index_lifecycle_policy_name = "${local.elasticsearch_index_template_name}-policy" # name is predefined by fluentd's elasticsearch datastreams plugin
   elasticsearch_index_template_name         = var.elasticsearch_index_template.name != "" ? var.elasticsearch_index_template.name : "logs-${module.elaticsearch_label.id}"
 }
 
@@ -57,23 +57,4 @@ resource "elasticsearch_composable_index_template" "template" {
   count = local.elasticsearch_create_objects
   name  = local.elasticsearch_index_template_name
   body  = jsonencode(module.elasticsearch_composable_index_template[0].merged)
-}
-
-resource "elasticsearch_kibana_object" "index_pattern" {
-  count = local.elasticsearch_create_objects
-  body  = <<EOF
-[
-  {
-    "_id": "index-pattern:${local.elasticsearch_index_template_name}",
-    "_type": "_doc",
-    "_source": {
-      "type": "index-pattern",
-      "index-pattern": {
-        "title": "${local.elasticsearch_index_template_name}",
-        "timeFieldName": "@timestamp"
-      }
-    }
-  }
-]
-EOF
 }

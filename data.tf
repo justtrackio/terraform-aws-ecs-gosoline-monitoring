@@ -6,15 +6,17 @@ data "gosoline_application_metadata_definition" "main" {
   count       = local.alarm_create
   project     = module.this.namespace
   environment = module.this.environment
-  family      = module.this.stage
+  family      = module.this.namespace
   application = module.this.name
+  group       = var.stage
 }
 
 data "gosoline_application_dashboard_definition" "main" {
   count       = var.grafana_dashboard_create ? 1 : 0
   project     = module.this.namespace
   environment = module.this.environment
-  family      = module.this.stage
+  family      = module.this.namespace
   application = module.this.name
   containers  = [module.this.name, "log_router"]
+  group       = var.stage
 }

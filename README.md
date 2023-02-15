@@ -5,7 +5,7 @@
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.0 |
 | <a name="requirement_elasticsearch"></a> [elasticsearch](#requirement\_elasticsearch) | 2.0.1 |
-| <a name="requirement_gosoline"></a> [gosoline](#requirement\_gosoline) | 0.0.11 |
+| <a name="requirement_gosoline"></a> [gosoline](#requirement\_gosoline) | 0.0.12 |
 | <a name="requirement_grafana"></a> [grafana](#requirement\_grafana) | 1.22.0 |
 | <a name="requirement_template"></a> [template](#requirement\_template) | 2.2.0 |
 
@@ -14,7 +14,7 @@
 | Name | Version |
 |------|---------|
 | <a name="provider_elasticsearch"></a> [elasticsearch](#provider\_elasticsearch) | 2.0.1 |
-| <a name="provider_gosoline"></a> [gosoline](#provider\_gosoline) | 0.0.11 |
+| <a name="provider_gosoline"></a> [gosoline](#provider\_gosoline) | 0.0.12 |
 | <a name="provider_grafana"></a> [grafana](#provider\_grafana) | 1.22.0 |
 | <a name="provider_template"></a> [template](#provider\_template) | 2.2.0 |
 
@@ -34,12 +34,11 @@
 | Name | Type |
 |------|------|
 | [elasticsearch_composable_index_template.template](https://registry.terraform.io/providers/phillbaker/elasticsearch/2.0.1/docs/resources/composable_index_template) | resource |
-| [elasticsearch_kibana_object.index_pattern](https://registry.terraform.io/providers/phillbaker/elasticsearch/2.0.1/docs/resources/kibana_object) | resource |
 | [elasticsearch_xpack_index_lifecycle_policy.policy](https://registry.terraform.io/providers/phillbaker/elasticsearch/2.0.1/docs/resources/xpack_index_lifecycle_policy) | resource |
 | [grafana_dashboard.main](https://registry.terraform.io/providers/grafana/grafana/1.22.0/docs/resources/dashboard) | resource |
 | [grafana_data_source.elasticsearch](https://registry.terraform.io/providers/grafana/grafana/1.22.0/docs/resources/data_source) | resource |
-| [gosoline_application_dashboard_definition.main](https://registry.terraform.io/providers/justtrackio/gosoline/0.0.11/docs/data-sources/application_dashboard_definition) | data source |
-| [gosoline_application_metadata_definition.main](https://registry.terraform.io/providers/justtrackio/gosoline/0.0.11/docs/data-sources/application_metadata_definition) | data source |
+| [gosoline_application_dashboard_definition.main](https://registry.terraform.io/providers/justtrackio/gosoline/0.0.12/docs/data-sources/application_dashboard_definition) | data source |
+| [gosoline_application_metadata_definition.main](https://registry.terraform.io/providers/justtrackio/gosoline/0.0.12/docs/data-sources/application_metadata_definition) | data source |
 | [template_file.elasticsearch_index_lifecycle_policy](https://registry.terraform.io/providers/hashicorp/template/2.2.0/docs/data-sources/file) | data source |
 | [template_file.elasticsearch_index_template](https://registry.terraform.io/providers/hashicorp/template/2.2.0/docs/data-sources/file) | data source |
 
