@@ -18,7 +18,7 @@ resource "grafana_data_source" "elasticsearch" {
   database_name = local.grafana_elasticsearch_index_pattern
 
   json_data {
-    es_version        = "7.15.0"
+    es_version        = "8.5.2"
     time_field        = "@timestamp"
     log_message_field = "message"
     log_level_field   = "level"

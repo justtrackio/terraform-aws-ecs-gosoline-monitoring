@@ -8,7 +8,7 @@ data "gosoline_application_metadata_definition" "main" {
   environment = module.this.environment
   family      = module.this.namespace
   application = module.this.name
-  group       = var.stage
+  group       = module.this.stage
 }
 
 data "gosoline_application_dashboard_definition" "main" {
@@ -17,6 +17,6 @@ data "gosoline_application_dashboard_definition" "main" {
   environment = module.this.environment
   family      = module.this.namespace
   application = module.this.name
-  containers  = [module.this.name, "log_router"]
-  group       = var.stage
+  containers  = ["${module.this.stage}-${module.this.name}", "log_router"]
+  group       = module.this.stage
 }
