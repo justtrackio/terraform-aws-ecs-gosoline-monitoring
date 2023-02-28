@@ -22,9 +22,9 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_alarm_consumer"></a> [alarm\_consumer](#module\_alarm\_consumer) | ./terraform-aws-ecs-alarm-consumer | n/a |
-| <a name="module_alarm_gateway"></a> [alarm\_gateway](#module\_alarm\_gateway) | ./terraform-aws-ecs-alarm-gateway | n/a |
-| <a name="module_alarm_kinsumer"></a> [alarm\_kinsumer](#module\_alarm\_kinsumer) | ./terraform-aws-ecs-alarm-kinsumer | n/a |
+| <a name="module_alarm_consumer"></a> [alarm\_consumer](#module\_alarm\_consumer) | justtrackio/ecs-alarm-consumer/aws | 1.0.0 |
+| <a name="module_alarm_gateway"></a> [alarm\_gateway](#module\_alarm\_gateway) | justtrackio/ecs-alarm-gateway/aws | 1.0.0 |
+| <a name="module_alarm_kinsumer"></a> [alarm\_kinsumer](#module\_alarm\_kinsumer) | justtrackio/ecs-alarm-kinsumer/aws | 1.0.0 |
 | <a name="module_elasticsearch_composable_index_template"></a> [elasticsearch\_composable\_index\_template](#module\_elasticsearch\_composable\_index\_template) | Invicton-Labs/deepmerge/null | 0.1.5 |
 | <a name="module_elaticsearch_label"></a> [elaticsearch\_label](#module\_elaticsearch\_label) | cloudposse/label/null | 0.25.0 |
 | <a name="module_this"></a> [this](#module\_this) | cloudposse/label/null | 0.25.0 |

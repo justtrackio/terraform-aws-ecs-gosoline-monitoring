@@ -7,16 +7,16 @@ module "alarm_gateway" {
     path = path
   } }
 
-  source = "./terraform-aws-ecs-alarm-gateway"
-  #version = "2.2.0"
+  source  = "justtrackio/ecs-alarm-gateway/aws"
+  version = "1.0.0"
 
-  alarm_description      = var.alarm_gateway.alarm_description
-  alarm_topic_arn        = var.alarm_topic_arn
-  datapoints_to_alarm    = var.alarm_gateway.datapoints_to_alarm
-  evaluation_periods     = var.alarm_gateway.evaluation_periods
-  path                   = each.value.path
-  period                 = var.alarm_gateway.period
-  success_rate_threshold = var.alarm_gateway.success_rate_threshold
+  alarm_description   = var.alarm_gateway.alarm_description
+  alarm_topic_arn     = var.alarm_topic_arn
+  datapoints_to_alarm = var.alarm_gateway.datapoints_to_alarm
+  evaluation_periods  = var.alarm_gateway.evaluation_periods
+  path                = each.value.path
+  period              = var.alarm_gateway.period
+  threshold           = var.alarm_gateway.success_rate_threshold
 
   label_orders = var.label_orders
   context      = module.this.context
