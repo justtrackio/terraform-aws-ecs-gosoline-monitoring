@@ -2,7 +2,7 @@ terraform {
   required_providers {
     elasticsearch = {
       source  = "phillbaker/elasticsearch"
-      version = "2.0.1"
+      version = "2.0.7"
     }
 
     gosoline = {
@@ -12,7 +12,7 @@ terraform {
 
     grafana = {
       source  = "grafana/grafana"
-      version = "1.22.0"
+      version = "1.35.0"
     }
 
     template = {
