@@ -58,8 +58,3 @@ resource "elasticsearch_composable_index_template" "template" {
   name  = local.elasticsearch_index_template_name
   body  = jsonencode(module.elasticsearch_composable_index_template[0].merged)
 }
-
-resource "elasticsearch_data_stream" "default" {
-  name       = local.elasticsearch_index_template_name
-  depends_on = [elasticsearch_composable_index_template.template]
-}
