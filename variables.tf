@@ -130,16 +130,12 @@ variable "grafana_folder_id" {
   default     = null
 }
 
-variable "metadata_domain" {
-  type        = string
-  description = "Domain for the application metadata"
-  default     = ""
-}
 variable "grafana_dashboard_url" {
   type        = string
   description = "Url of the grafana dashboard"
   default     = ""
 }
+
 variable "grafana_dashboard_auth" {
   type        = string
   description = "Authorization token for grafana"
@@ -158,6 +154,16 @@ variable "label_orders" {
 variable "containers" {
   type        = list(string)
   description = "The list of container names from your container_definition"
+  default     = null
+}
+
+variable "gosoline_metadata" {
+  type = object({
+    domain    = optional(string),
+    use_https = optional(string),
+    port      = optional(string)
+  })
+  description = "Define custom metadata for the gosoline provider"
   default     = null
 }
 

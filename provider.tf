@@ -1,9 +1,5 @@
 provider "gosoline" {
-  metadata = {
-    domain    = var.metadata_domain
-    use_https = false
-    port      = 8070
-  }
+  metadata      = var.gosoline_metadata
   name_patterns = var.gosoline_name_patterns
 }
 
