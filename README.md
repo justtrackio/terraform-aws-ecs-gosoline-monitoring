@@ -7,7 +7,6 @@
 | <a name="requirement_elasticsearch"></a> [elasticsearch](#requirement\_elasticsearch) | 2.0.7 |
 | <a name="requirement_gosoline"></a> [gosoline](#requirement\_gosoline) | 0.0.12 |
 | <a name="requirement_grafana"></a> [grafana](#requirement\_grafana) | 1.35.0 |
-| <a name="requirement_template"></a> [template](#requirement\_template) | 2.2.0 |
 
 ## Providers
 
@@ -16,7 +15,6 @@
 | <a name="provider_elasticsearch"></a> [elasticsearch](#provider\_elasticsearch) | 2.0.7 |
 | <a name="provider_gosoline"></a> [gosoline](#provider\_gosoline) | 0.0.12 |
 | <a name="provider_grafana"></a> [grafana](#provider\_grafana) | 1.35.0 |
-| <a name="provider_template"></a> [template](#provider\_template) | 2.2.0 |
 
 ## Modules
 
@@ -39,8 +37,6 @@
 | [grafana_data_source.elasticsearch](https://registry.terraform.io/providers/grafana/grafana/1.35.0/docs/resources/data_source) | resource |
 | [gosoline_application_dashboard_definition.main](https://registry.terraform.io/providers/justtrackio/gosoline/0.0.12/docs/data-sources/application_dashboard_definition) | data source |
 | [gosoline_application_metadata_definition.main](https://registry.terraform.io/providers/justtrackio/gosoline/0.0.12/docs/data-sources/application_metadata_definition) | data source |
-| [template_file.elasticsearch_index_lifecycle_policy](https://registry.terraform.io/providers/hashicorp/template/2.2.0/docs/data-sources/file) | data source |
-| [template_file.elasticsearch_index_template](https://registry.terraform.io/providers/hashicorp/template/2.2.0/docs/data-sources/file) | data source |
 
 ## Inputs
 
@@ -53,6 +49,7 @@
 | <a name="input_alarm_kinsumer"></a> [alarm\_kinsumer](#input\_alarm\_kinsumer) | This can be used to override alarms for kinsumers. Keys are names of the kinsumers. | <pre>object({<br>    alarm_description        = optional(string)<br>    datapoints_to_alarm      = optional(number, 1)<br>    evaluation_periods       = optional(number, 1)<br>    period                   = optional(number, 60)<br>    threshold_seconds_behind = optional(number, 60)<br>  })</pre> | `{}` | no |
 | <a name="input_alarm_topic_arn"></a> [alarm\_topic\_arn](#input\_alarm\_topic\_arn) | The ARN of the SNS topic to receive the alerts | `string` | `null` | no |
 | <a name="input_attributes"></a> [attributes](#input\_attributes) | ID element. Additional attributes (e.g. `workers` or `cluster`) to add to `id`,<br>in the order they appear in the list. New attributes are appended to the<br>end of the list. The elements of the list are joined by the `delimiter`<br>and treated as a single ID element. | `list(string)` | `[]` | no |
+| <a name="input_containers"></a> [containers](#input\_containers) | The list of container names from your container\_definition | `list(string)` | `null` | no |
 | <a name="input_context"></a> [context](#input\_context) | Single object for setting entire context at once.<br>See description of individual variables for details.<br>Leave string and numeric variables as `null` to use default value.<br>Individual variable settings (non-null) override settings in context object,<br>except for attributes, tags, and additional\_tag\_map, which are merged. | `any` | <pre>{<br>  "additional_tag_map": {},<br>  "attributes": [],<br>  "delimiter": null,<br>  "descriptor_formats": {},<br>  "enabled": true,<br>  "environment": null,<br>  "id_length_limit": null,<br>  "label_key_case": null,<br>  "label_order": [],<br>  "label_value_case": null,<br>  "labels_as_tags": [<br>    "unset"<br>  ],<br>  "name": null,<br>  "namespace": null,<br>  "regex_replace_chars": null,<br>  "stage": null,<br>  "tags": {},<br>  "tenant": null<br>}</pre> | no |
 | <a name="input_delimiter"></a> [delimiter](#input\_delimiter) | Delimiter to be used between ID elements.<br>Defaults to `-` (hyphen). Set to `""` to use no delimiter at all. | `string` | `null` | no |
 | <a name="input_descriptor_formats"></a> [descriptor\_formats](#input\_descriptor\_formats) | Describe additional descriptors to be output in the `descriptors` output map.<br>Map of maps. Keys are names of descriptors. Values are maps of the form<br>`{<br>   format = string<br>   labels = list(string)<br>}`<br>(Type is `any` so the map values can later be enhanced to provide additional options.)<br>`format` is a Terraform format string to be passed to the `format()` function.<br>`labels` is a list of labels, in order, to pass to `format()` function.<br>Label values will be normalized before being passed to `format()` so they will be<br>identical to how they appear in `id`.<br>Default is `{}` (`descriptors` output will be empty). | `any` | `{}` | no |
@@ -62,6 +59,7 @@
 | <a name="input_elasticsearch_lifecycle_policy"></a> [elasticsearch\_lifecycle\_policy](#input\_elasticsearch\_lifecycle\_policy) | This defines the properties used within the index lifecycle management policy (Only used if create\_elasticsearch\_data\_stream is true) | <pre>object({<br>    delete_phase_min_age             = string<br>    hot_phase_max_primary_shard_size = string<br>    hot_phase_max_age                = string<br>    warm_phase_number_of_replicas    = number<br>  })</pre> | <pre>{<br>  "delete_phase_min_age": "28d",<br>  "hot_phase_max_age": "1d",<br>  "hot_phase_max_primary_shard_size": "50gb",<br>  "warm_phase_number_of_replicas": 0<br>}</pre> | no |
 | <a name="input_enabled"></a> [enabled](#input\_enabled) | Set to false to prevent the module from creating any resources | `bool` | `null` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | ID element. Usually used for region e.g. 'uw2', 'us-west-2', OR role 'prod', 'staging', 'dev', 'UAT' | `string` | `null` | no |
+| <a name="input_gosoline_name_patterns"></a> [gosoline\_name\_patterns](#input\_gosoline\_name\_patterns) | Define custom name patters for the gosoline provider | <pre>object({<br>    hostname                         = optional(string),<br>    cloudwatch_namespace             = optional(string),<br>    ecs_cluster                      = optional(string),<br>    ecs_service                      = optional(string),<br>    grafana_elasticsearch_datasource = optional(string)<br>  })</pre> | `null` | no |
 | <a name="input_grafana_dashboard_auth"></a> [grafana\_dashboard\_auth](#input\_grafana\_dashboard\_auth) | Authorization token for grafana | `string` | `""` | no |
 | <a name="input_grafana_dashboard_create"></a> [grafana\_dashboard\_create](#input\_grafana\_dashboard\_create) | Defines whether there will be a grafana dashboard (incl. datasource) | `bool` | `true` | no |
 | <a name="input_grafana_dashboard_url"></a> [grafana\_dashboard\_url](#input\_grafana\_dashboard\_url) | Url of the grafana dashboard | `string` | `""` | no |

@@ -154,3 +154,21 @@ variable "label_orders" {
   default     = {}
   description = "Overrides the `labels_order` for the different labels to modify ID elements appear in the `id`"
 }
+
+variable "containers" {
+  type        = list(string)
+  description = "The list of container names from your container_definition"
+  default     = null
+}
+
+variable "gosoline_name_patterns" {
+  type = object({
+    hostname                         = optional(string),
+    cloudwatch_namespace             = optional(string),
+    ecs_cluster                      = optional(string),
+    ecs_service                      = optional(string),
+    grafana_elasticsearch_datasource = optional(string)
+  })
+  description = "Define custom name patters for the gosoline provider"
+  default     = null
+}

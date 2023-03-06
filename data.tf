@@ -17,6 +17,6 @@ data "gosoline_application_dashboard_definition" "main" {
   environment = module.this.environment
   family      = module.this.namespace
   application = module.this.name
-  containers  = ["${module.this.stage}-${module.this.name}", "log_router"]
+  containers  = var.containers
   group       = module.this.stage
 }
