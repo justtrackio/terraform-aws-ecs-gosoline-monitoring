@@ -40,6 +40,18 @@ variable "alarm_kinsumer" {
   description = "This can be used to override alarms for kinsumers. Keys are names of the kinsumers."
 }
 
+variable "alarm_scheduled" {
+  type = object({
+    alarm_description   = optional(string)
+    datapoints_to_alarm = optional(number, 1)
+    evaluation_periods  = optional(number, 1)
+    period              = optional(number, 60)
+    threshold           = optional(number, 0)
+  })
+  default     = {}
+  description = "This can be used to override scheduled alarm"
+}
+
 variable "alarm_topic_arn" {
   type        = string
   description = "The ARN of the SNS topic to receive the alerts"

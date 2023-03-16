@@ -23,6 +23,7 @@
 | <a name="module_alarm_consumer"></a> [alarm\_consumer](#module\_alarm\_consumer) | justtrackio/ecs-alarm-consumer/aws | 1.0.0 |
 | <a name="module_alarm_gateway"></a> [alarm\_gateway](#module\_alarm\_gateway) | justtrackio/ecs-alarm-gateway/aws | 1.0.0 |
 | <a name="module_alarm_kinsumer"></a> [alarm\_kinsumer](#module\_alarm\_kinsumer) | justtrackio/ecs-alarm-kinsumer/aws | 1.0.0 |
+| <a name="module_alarm_scheduled"></a> [alarm\_scheduled](#module\_alarm\_scheduled) | justtrackio/ecs-alarm-scheduled/aws | 1.0.0 |
 | <a name="module_elasticsearch_composable_index_template"></a> [elasticsearch\_composable\_index\_template](#module\_elasticsearch\_composable\_index\_template) | Invicton-Labs/deepmerge/null | 0.1.5 |
 | <a name="module_elaticsearch_label"></a> [elaticsearch\_label](#module\_elaticsearch\_label) | cloudposse/label/null | 0.25.0 |
 | <a name="module_this"></a> [this](#module\_this) | cloudposse/label/null | 0.25.0 |
@@ -47,6 +48,7 @@
 | <a name="input_alarm_create"></a> [alarm\_create](#input\_alarm\_create) | Defines if alarms should be created | `bool` | `true` | no |
 | <a name="input_alarm_gateway"></a> [alarm\_gateway](#input\_alarm\_gateway) | This can be used to override alarms for gateway routes. Keys are names of the gateway route. | <pre>object({<br>    alarm_description      = optional(string)<br>    datapoints_to_alarm    = optional(number, 3)<br>    evaluation_periods     = optional(number, 3)<br>    period                 = optional(number, 60)<br>    success_rate_threshold = optional(number, 99)<br>  })</pre> | `{}` | no |
 | <a name="input_alarm_kinsumer"></a> [alarm\_kinsumer](#input\_alarm\_kinsumer) | This can be used to override alarms for kinsumers. Keys are names of the kinsumers. | <pre>object({<br>    alarm_description        = optional(string)<br>    datapoints_to_alarm      = optional(number, 1)<br>    evaluation_periods       = optional(number, 1)<br>    period                   = optional(number, 60)<br>    threshold_seconds_behind = optional(number, 60)<br>  })</pre> | `{}` | no |
+| <a name="input_alarm_scheduled"></a> [alarm\_scheduled](#input\_alarm\_scheduled) | This can be used to override scheduled alarm | <pre>object({<br>    alarm_description   = optional(string)<br>    datapoints_to_alarm = optional(number, 1)<br>    evaluation_periods  = optional(number, 1)<br>    period              = optional(number, 60)<br>    threshold           = optional(number, 0)<br>  })</pre> | `{}` | no |
 | <a name="input_alarm_topic_arn"></a> [alarm\_topic\_arn](#input\_alarm\_topic\_arn) | The ARN of the SNS topic to receive the alerts | `string` | `null` | no |
 | <a name="input_attributes"></a> [attributes](#input\_attributes) | ID element. Additional attributes (e.g. `workers` or `cluster`) to add to `id`,<br>in the order they appear in the list. New attributes are appended to the<br>end of the list. The elements of the list are joined by the `delimiter`<br>and treated as a single ID element. | `list(string)` | `[]` | no |
 | <a name="input_containers"></a> [containers](#input\_containers) | The list of container names from your container\_definition | `list(string)` | `null` | no |
