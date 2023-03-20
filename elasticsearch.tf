@@ -48,3 +48,22 @@ resource "elasticsearch_composable_index_template" "template" {
   name  = local.elasticsearch_index_template_name
   body  = jsonencode(module.elasticsearch_composable_index_template[0].merged)
 }
+
+resource "elasticsearch_kibana_object" "index_pattern" {
+  count = local.elasticsearch_create_objects
+  body  = <<EOF
+[
+  {
+    "_id": "index-pattern:${local.elasticsearch_index_template_name}",
+    "_type": "_doc",
+    "_source": {
+      "type": "index-pattern",
+      "index-pattern": {
+        "title": "${local.elasticsearch_index_template_name}",
+        "timeFieldName": "@timestamp"
+      }
+    }
+  }
+]
+EOF
+}
