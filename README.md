@@ -33,6 +33,7 @@
 | Name | Type |
 |------|------|
 | [elasticsearch_composable_index_template.template](https://registry.terraform.io/providers/phillbaker/elasticsearch/2.0.7/docs/resources/composable_index_template) | resource |
+| [elasticsearch_kibana_object.index_pattern](https://registry.terraform.io/providers/phillbaker/elasticsearch/2.0.7/docs/resources/kibana_object) | resource |
 | [elasticsearch_xpack_index_lifecycle_policy.policy](https://registry.terraform.io/providers/phillbaker/elasticsearch/2.0.7/docs/resources/xpack_index_lifecycle_policy) | resource |
 | [grafana_dashboard.main](https://registry.terraform.io/providers/grafana/grafana/1.35.0/docs/resources/dashboard) | resource |
 | [grafana_data_source.elasticsearch](https://registry.terraform.io/providers/grafana/grafana/1.35.0/docs/resources/data_source) | resource |
