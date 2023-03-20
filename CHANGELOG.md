@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v1.1.0...v1.1.1) (2023-03-20)
+
+
+### Bug Fixes
+
+* add kibana index pattern ([#7](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/issues/7)) ([c55a62d](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/commit/c55a62d5056cb7f08d9a0814e12bca0cad898700))
+
 ## [1.1.0](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v1.0.0...v1.1.0) (2023-03-16)
 
 
