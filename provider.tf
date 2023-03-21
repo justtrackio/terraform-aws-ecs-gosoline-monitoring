@@ -11,3 +11,10 @@ provider "grafana" {
 provider "elasticsearch" {
   url = var.elasticsearch_host
 }
+
+provider "elasticstack" {
+  elasticsearch {
+    endpoints = [var.elasticsearch_host]
+    insecure  = true
+  }
+}

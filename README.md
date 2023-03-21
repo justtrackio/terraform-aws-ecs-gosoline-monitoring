@@ -5,6 +5,7 @@
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.0 |
 | <a name="requirement_elasticsearch"></a> [elasticsearch](#requirement\_elasticsearch) | 2.0.7 |
+| <a name="requirement_elasticstack"></a> [elasticstack](#requirement\_elasticstack) | 0.5.0 |
 | <a name="requirement_gosoline"></a> [gosoline](#requirement\_gosoline) | 0.0.12 |
 | <a name="requirement_grafana"></a> [grafana](#requirement\_grafana) | 1.35.0 |
 
@@ -12,7 +13,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_elasticsearch"></a> [elasticsearch](#provider\_elasticsearch) | 2.0.7 |
+| <a name="provider_elasticstack"></a> [elasticstack](#provider\_elasticstack) | 0.5.0 |
 | <a name="provider_gosoline"></a> [gosoline](#provider\_gosoline) | 0.0.12 |
 | <a name="provider_grafana"></a> [grafana](#provider\_grafana) | 1.35.0 |
 
@@ -24,7 +25,6 @@
 | <a name="module_alarm_gateway"></a> [alarm\_gateway](#module\_alarm\_gateway) | justtrackio/ecs-alarm-gateway/aws | 1.0.0 |
 | <a name="module_alarm_kinsumer"></a> [alarm\_kinsumer](#module\_alarm\_kinsumer) | justtrackio/ecs-alarm-kinsumer/aws | 1.0.0 |
 | <a name="module_alarm_scheduled"></a> [alarm\_scheduled](#module\_alarm\_scheduled) | justtrackio/ecs-alarm-scheduled/aws | 1.0.0 |
-| <a name="module_elasticsearch_composable_index_template"></a> [elasticsearch\_composable\_index\_template](#module\_elasticsearch\_composable\_index\_template) | Invicton-Labs/deepmerge/null | 0.1.5 |
 | <a name="module_elaticsearch_label"></a> [elaticsearch\_label](#module\_elaticsearch\_label) | cloudposse/label/null | 0.25.0 |
 | <a name="module_this"></a> [this](#module\_this) | cloudposse/label/null | 0.25.0 |
 
@@ -32,9 +32,8 @@
 
 | Name | Type |
 |------|------|
-| [elasticsearch_composable_index_template.template](https://registry.terraform.io/providers/phillbaker/elasticsearch/2.0.7/docs/resources/composable_index_template) | resource |
-| [elasticsearch_kibana_object.index_pattern](https://registry.terraform.io/providers/phillbaker/elasticsearch/2.0.7/docs/resources/kibana_object) | resource |
-| [elasticsearch_xpack_index_lifecycle_policy.policy](https://registry.terraform.io/providers/phillbaker/elasticsearch/2.0.7/docs/resources/xpack_index_lifecycle_policy) | resource |
+| [elasticstack_elasticsearch_index_lifecycle.default](https://registry.terraform.io/providers/elastic/elasticstack/0.5.0/docs/resources/elasticsearch_index_lifecycle) | resource |
+| [elasticstack_elasticsearch_index_template.default](https://registry.terraform.io/providers/elastic/elasticstack/0.5.0/docs/resources/elasticsearch_index_template) | resource |
 | [grafana_dashboard.main](https://registry.terraform.io/providers/grafana/grafana/1.35.0/docs/resources/dashboard) | resource |
 | [grafana_data_source.elasticsearch](https://registry.terraform.io/providers/grafana/grafana/1.35.0/docs/resources/data_source) | resource |
 | [gosoline_application_dashboard_definition.main](https://registry.terraform.io/providers/justtrackio/gosoline/0.0.12/docs/data-sources/application_dashboard_definition) | data source |
