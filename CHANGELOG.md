@@ -1,3 +1,10 @@
+## [1.2.0](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v1.1.1...v1.2.0) (2023-03-21)
+
+
+### Features
+
+* switch to official elastic provider ([#8](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/issues/8)) ([65ba830](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/commit/65ba830c534c9d509c89df48d651d6c2f5d254a0))
+
 ## [1.1.1](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v1.1.0...v1.1.1) (2023-03-20)
 
 
