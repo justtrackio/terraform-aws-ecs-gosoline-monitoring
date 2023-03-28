@@ -6,7 +6,10 @@ module "alarm_consumer" {
   source  = "justtrackio/ecs-alarm-consumer/aws"
   version = "1.0.0"
 
-  alarm_description   = var.alarm_consumer.alarm_description
+  alarm_description = jsonencode(merge({
+    Severity    = "warning"
+    Description = var.alarm_consumer.alarm_description
+  }, module.this.tags, module.this.additional_tag_map))
   alarm_topic_arn     = var.alarm_topic_arn
   consumer_name       = each.value.metadata.name
   datapoints_to_alarm = var.alarm_consumer.datapoints_to_alarm

@@ -4,7 +4,10 @@ module "alarm_scheduled" {
   source  = "justtrackio/ecs-alarm-scheduled/aws"
   version = "1.0.0"
 
-  alarm_description   = var.alarm_scheduled.alarm_description
+  alarm_description = jsonencode(merge({
+    Severity    = "warning"
+    Description = var.alarm_scheduled.alarm_description
+  }, module.this.tags, module.this.additional_tag_map))
   alarm_topic_arn     = var.alarm_topic_arn
   datapoints_to_alarm = var.alarm_scheduled.datapoints_to_alarm
   evaluation_periods  = var.alarm_scheduled.evaluation_periods
