@@ -1,3 +1,10 @@
+## [1.3.0](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v1.2.0...v1.3.0) (2023-03-28)
+
+
+### Features
+
+* adjust_alarm_description_json ([#10](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/issues/10)) ([4b1ca01](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/commit/4b1ca0183afc566353cb16a6aebfc9313078ddb1))
+
 ## [1.2.0](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v1.1.1...v1.2.0) (2023-03-21)
 
 
