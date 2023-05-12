@@ -1,9 +1,3 @@
-variable "alarm_enabled" {
-  type        = bool
-  default     = true
-  description = "Defines if alarms should be created"
-}
-
 variable "alarm_consumer" {
   type = object({
     alarm_description      = optional(string)
@@ -14,6 +8,12 @@ variable "alarm_consumer" {
   })
   default     = {}
   description = "This can be used to override alarms for consumers. Keys are names of the consumers."
+}
+
+variable "alarm_enabled" {
+  type        = bool
+  default     = true
+  description = "Defines if alarms should be created"
 }
 
 variable "alarm_gateway" {
@@ -50,6 +50,18 @@ variable "alarm_scheduled" {
   })
   default     = {}
   description = "This can be used to override scheduled alarm"
+}
+
+variable "containers" {
+  type        = list(string)
+  description = "The list of container names from your container_definition"
+  default     = null
+}
+
+variable "domain" {
+  type        = string
+  description = "The domain for elasticsearch and grafana"
+  default     = null
 }
 
 variable "elasticsearch_data_stream_enabled" {
@@ -113,39 +125,6 @@ variable "elasticsearch_lifecycle_policy" {
   }
 }
 
-variable "grafana_dashboard_enabled" {
-  type        = bool
-  default     = true
-  description = "Defines whether there will be a grafana dashboard (incl. datasource)"
-}
-
-variable "grafana_elasticsearch_index_pattern" {
-  type        = string
-  description = "Defines the index pattern that should be used within grafana to load dashboard data"
-  default     = ""
-}
-
-variable "grafana_dashboard_url" {
-  type        = string
-  description = "Url of the grafana dashboard"
-  default     = ""
-}
-
-variable "label_orders" {
-  type = object({
-    cloudwatch    = optional(list(string), ["environment", "stage", "name"]),
-    elasticsearch = optional(list(string), ["environment", "namespace", "stage", "name"])
-  })
-  default     = {}
-  description = "Overrides the `labels_order` for the different labels to modify ID elements appear in the `id`"
-}
-
-variable "containers" {
-  type        = list(string)
-  description = "The list of container names from your container_definition"
-  default     = null
-}
-
 variable "gosoline_metadata" {
   type = object({
     domain    = optional(string),
@@ -174,8 +153,29 @@ variable "gosoline_name_patterns" {
   }
 }
 
-variable "domain" {
+variable "grafana_dashboard_enabled" {
+  type        = bool
+  default     = true
+  description = "Defines whether there will be a grafana dashboard (incl. datasource)"
+}
+
+variable "grafana_dashboard_url" {
   type        = string
-  description = "The domain for elasticsearch and grafana"
-  default     = null
+  description = "Url of the grafana dashboard"
+  default     = ""
+}
+
+variable "grafana_elasticsearch_index_pattern" {
+  type        = string
+  description = "Defines the index pattern that should be used within grafana to load dashboard data"
+  default     = ""
+}
+
+variable "label_orders" {
+  type = object({
+    cloudwatch    = optional(list(string), ["environment", "stage", "name"]),
+    elasticsearch = optional(list(string), ["environment", "namespace", "stage", "name"])
+  })
+  default     = {}
+  description = "Overrides the `labels_order` for the different labels to modify ID elements appear in the `id`"
 }

@@ -2,8 +2,8 @@ locals {
   grafana_dashboard_create            = var.grafana_dashboard_enabled && lookup(module.this.tags, "Type", null) != "scheduled" ? 1 : 0
   grafana_elasticsearch_index_pattern = var.grafana_elasticsearch_index_pattern != "" ? var.grafana_elasticsearch_index_pattern : "logs-${module.this.namespace}-${module.this.stage}-${module.this.name}"
   containers                          = var.containers != null ? var.containers : ["${module.this.stage}-${module.this.name}", "log_router"]
-  elasticsearch_host                  = var.elasticsearch_host != null ? var.elasticsearch_host : "http://elasticsearch.${var.organizational_unit}-monitoring.${var.domain}:9200"
-  grafana_dashboard_url               = var.grafana_dashboard_url != null ? var.grafana_dashboard_url : "http://grafana.${var.organizational_unit}-monitoring.${var.domain}"
+  elasticsearch_host                  = var.elasticsearch_host != null ? var.elasticsearch_host : "http://elasticsearch.${module.this.organizational_unit}-monitoring.${var.domain}:9200"
+  grafana_dashboard_url               = var.grafana_dashboard_url != null ? var.grafana_dashboard_url : "http://grafana.${module.this.organizational_unit}-monitoring.${var.domain}"
 }
 
 resource "grafana_folder" "default" {
