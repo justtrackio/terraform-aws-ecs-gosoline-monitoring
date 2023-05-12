@@ -14,7 +14,7 @@ module "alarm_gateway" {
     Severity    = "warning"
     Description = var.alarm_gateway.alarm_description
   }, module.this.tags, module.this.additional_tag_map))
-  alarm_topic_arn     = var.alarm_topic_arn
+  alarm_topic_arn     = data.aws_sns_topic.default.arn
   datapoints_to_alarm = var.alarm_gateway.datapoints_to_alarm
   evaluation_periods  = var.alarm_gateway.evaluation_periods
   path                = each.value.path

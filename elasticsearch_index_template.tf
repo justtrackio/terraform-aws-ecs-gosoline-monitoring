@@ -3,7 +3,7 @@ module "elaticsearch_label" {
   version = "0.25.0"
 
   label_order = var.label_orders.elasticsearch
-  enabled     = var.elasticsearch_data_stream_create
+  enabled     = var.elasticsearch_data_stream_enabled
 
   context = module.this.context
 }

@@ -1,5 +1,10 @@
 terraform {
   required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = ">= 4.30.0"
+    }
+
     elasticsearch = {
       source  = "phillbaker/elasticsearch"
       version = "2.0.7"
@@ -12,7 +17,7 @@ terraform {
 
     grafana = {
       source  = "grafana/grafana"
-      version = "1.35.0"
+      version = "1.40.0"
     }
 
     elasticstack = {
