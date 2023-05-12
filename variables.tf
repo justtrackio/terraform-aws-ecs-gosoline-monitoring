@@ -108,10 +108,6 @@ variable "elasticsearch_lifecycle_policy" {
     error_message = "The hot_phase_max_primary_shard_size property should be beginning with a number and ending with \"gb\" or \"mb\"."
   }
   validation {
-    condition     = can(regex("^\\d+d", var.elasticsearch_lifecycle_policy.hot_phase_max_age))
-    error_message = "The hot_phase_max_age property should be beginning with a number and ending with \"d\" for days."
-  }
-  validation {
     condition     = can(regex("^\\d+d", var.elasticsearch_lifecycle_policy.delete_phase_min_age))
     error_message = "The delete_phase_min_age property should be beginning with a number and ending with \"d\" for days."
   }
