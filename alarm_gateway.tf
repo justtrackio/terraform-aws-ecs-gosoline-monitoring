@@ -8,7 +8,7 @@ module "alarm_gateway" {
   } }
 
   source  = "justtrackio/ecs-alarm-gateway/aws"
-  version = "1.0.0"
+  version = "1.0.1"
 
   alarm_description = jsonencode(merge({
     Severity    = "warning"
