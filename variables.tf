@@ -145,7 +145,7 @@ variable "gosoline_name_patterns" {
   })
   description = "Define custom name patters for the gosoline provider"
   default = {
-    hostname                         = "{scheme}://{group}-{app}.{env}.{metadata_domain}:{port}"
+    hostname                         = "{scheme}://{app}.{group}.{env}.{metadata_domain}:{port}"
     cloudwatch_namespace             = "{env}/{group}/{app}"
     ecs_cluster                      = "{env}"
     ecs_service                      = "{group}-{app}"
@@ -162,7 +162,7 @@ variable "grafana_dashboard_enabled" {
 variable "grafana_dashboard_url" {
   type        = string
   description = "Url of the grafana dashboard"
-  default     = ""
+  default     = null
 }
 
 variable "grafana_elasticsearch_index_pattern" {

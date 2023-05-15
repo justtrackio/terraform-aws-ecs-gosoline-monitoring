@@ -12,7 +12,7 @@ data "gosoline_application_metadata_definition" "main" {
 }
 
 data "aws_sns_topic" "default" {
-  name = "${var.environment}-alarms"
+  name = "${module.this.environment}-alarms"
 }
 
 data "aws_ssm_parameter" "grafana_token" {

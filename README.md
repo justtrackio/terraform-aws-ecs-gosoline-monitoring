@@ -4,7 +4,7 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.0 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.30.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.67 |
 | <a name="requirement_elasticsearch"></a> [elasticsearch](#requirement\_elasticsearch) | 2.0.7 |
 | <a name="requirement_elasticstack"></a> [elasticstack](#requirement\_elasticstack) | 0.5.0 |
 | <a name="requirement_gosoline"></a> [gosoline](#requirement\_gosoline) | 0.0.12 |
@@ -14,7 +14,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.30.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.67 |
 | <a name="provider_elasticstack"></a> [elasticstack](#provider\_elasticstack) | 0.5.0 |
 | <a name="provider_gosoline"></a> [gosoline](#provider\_gosoline) | 0.0.12 |
 | <a name="provider_grafana"></a> [grafana](#provider\_grafana) | 1.40.0 |
@@ -23,11 +23,11 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_alarm_consumer"></a> [alarm\_consumer](#module\_alarm\_consumer) | justtrackio/ecs-alarm-consumer/aws | 1.0.0 |
-| <a name="module_alarm_gateway"></a> [alarm\_gateway](#module\_alarm\_gateway) | justtrackio/ecs-alarm-gateway/aws | 1.0.0 |
-| <a name="module_alarm_kinsumer"></a> [alarm\_kinsumer](#module\_alarm\_kinsumer) | justtrackio/ecs-alarm-kinsumer/aws | 1.0.0 |
-| <a name="module_alarm_scheduled"></a> [alarm\_scheduled](#module\_alarm\_scheduled) | justtrackio/ecs-alarm-scheduled/aws | 1.0.0 |
-| <a name="module_elaticsearch_label"></a> [elaticsearch\_label](#module\_elaticsearch\_label) | cloudposse/label/null | 0.25.0 |
+| <a name="module_alarm_consumer"></a> [alarm\_consumer](#module\_alarm\_consumer) | justtrackio/ecs-alarm-consumer/aws | 1.0.1 |
+| <a name="module_alarm_gateway"></a> [alarm\_gateway](#module\_alarm\_gateway) | justtrackio/ecs-alarm-gateway/aws | 1.0.1 |
+| <a name="module_alarm_kinsumer"></a> [alarm\_kinsumer](#module\_alarm\_kinsumer) | justtrackio/ecs-alarm-kinsumer/aws | 1.0.1 |
+| <a name="module_alarm_scheduled"></a> [alarm\_scheduled](#module\_alarm\_scheduled) | justtrackio/ecs-alarm-scheduled/aws | 1.0.1 |
+| <a name="module_elaticsearch_label"></a> [elaticsearch\_label](#module\_elaticsearch\_label) | justtrackio/label/null | 0.26.0 |
 | <a name="module_this"></a> [this](#module\_this) | justtrackio/label/null | 0.26.0 |
 
 ## Resources
