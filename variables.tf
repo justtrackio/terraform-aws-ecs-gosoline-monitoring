@@ -174,7 +174,7 @@ variable "grafana_elasticsearch_index_pattern" {
 variable "label_orders" {
   type = object({
     cloudwatch    = optional(list(string), ["environment", "stage", "name"]),
-    elasticsearch = optional(list(string), ["environment", "namespace", "stage", "name"])
+    elasticsearch = optional(list(string), ["environment", "stage", "name"])
   })
   default     = {}
   description = "Overrides the `labels_order` for the different labels to modify ID elements appear in the `id`"
