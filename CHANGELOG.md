@@ -1,3 +1,14 @@
+## [2.0.0](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v1.3.0...v2.0.0) (2023-05-24)
+
+
+### ⚠ BREAKING CHANGES
+
+* add_custom_config (#14)
+
+### Features
+
+* add_custom_config ([#14](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/issues/14)) ([87b0767](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/commit/87b076729206f8493d46ac57f5c1b07488567fb2))
+
 ## [1.3.0](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v1.2.0...v1.3.0) (2023-03-28)
 
 
