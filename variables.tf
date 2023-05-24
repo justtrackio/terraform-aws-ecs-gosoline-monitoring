@@ -1,9 +1,3 @@
-variable "alarm_create" {
-  type        = bool
-  default     = true
-  description = "Defines if alarms should be created"
-}
-
 variable "alarm_consumer" {
   type = object({
     alarm_description      = optional(string)
@@ -14,6 +8,12 @@ variable "alarm_consumer" {
   })
   default     = {}
   description = "This can be used to override alarms for consumers. Keys are names of the consumers."
+}
+
+variable "alarm_enabled" {
+  type        = bool
+  default     = true
+  description = "Defines if alarms should be created"
 }
 
 variable "alarm_gateway" {
@@ -52,13 +52,19 @@ variable "alarm_scheduled" {
   description = "This can be used to override scheduled alarm"
 }
 
-variable "alarm_topic_arn" {
-  type        = string
-  description = "The ARN of the SNS topic to receive the alerts"
+variable "containers" {
+  type        = list(string)
+  description = "The list of container names from your container_definition"
   default     = null
 }
 
-variable "elasticsearch_data_stream_create" {
+variable "domain" {
+  type        = string
+  description = "The domain for elasticsearch and grafana"
+  default     = null
+}
+
+variable "elasticsearch_data_stream_enabled" {
   type        = bool
   default     = true
   description = "Defines whether there will be a elasticsearch data_stream, index template, index lifecycle policy created"
@@ -99,13 +105,14 @@ variable "elasticsearch_lifecycle_policy" {
   type = object({
     delete_phase_min_age             = string
     hot_phase_max_primary_shard_size = string
-    hot_phase_max_age                = string
+    hot_phase_max_age                = optional(string)
+    warm_phase_min_age               = string
     warm_phase_number_of_replicas    = number
   })
   default = {
     delete_phase_min_age             = "28d"
-    hot_phase_max_primary_shard_size = "50gb"
-    hot_phase_max_age                = "1d"
+    hot_phase_max_primary_shard_size = "10gb"
+    warm_phase_min_age               = "1d"
     warm_phase_number_of_replicas    = 0
   }
   description = "This defines the properties used within the index lifecycle management policy (Only used if create_elasticsearch_data_stream is true)"
@@ -115,58 +122,9 @@ variable "elasticsearch_lifecycle_policy" {
     error_message = "The hot_phase_max_primary_shard_size property should be beginning with a number and ending with \"gb\" or \"mb\"."
   }
   validation {
-    condition     = can(regex("^\\d+d", var.elasticsearch_lifecycle_policy.hot_phase_max_age))
-    error_message = "The hot_phase_max_age property should be beginning with a number and ending with \"d\" for days."
-  }
-  validation {
     condition     = can(regex("^\\d+d", var.elasticsearch_lifecycle_policy.delete_phase_min_age))
     error_message = "The delete_phase_min_age property should be beginning with a number and ending with \"d\" for days."
   }
-}
-
-variable "grafana_dashboard_create" {
-  type        = bool
-  default     = true
-  description = "Defines whether there will be a grafana dashboard (incl. datasource)"
-}
-
-variable "grafana_elasticsearch_index_pattern" {
-  type        = string
-  description = "Defines the index pattern that should be used within grafana to load dashboard data"
-  default     = ""
-}
-
-variable "grafana_folder_id" {
-  type        = number
-  description = "Defines the grafana folder which should store the dashboards"
-  default     = null
-}
-
-variable "grafana_dashboard_url" {
-  type        = string
-  description = "Url of the grafana dashboard"
-  default     = ""
-}
-
-variable "grafana_dashboard_auth" {
-  type        = string
-  description = "Authorization token for grafana"
-  default     = ""
-}
-
-variable "label_orders" {
-  type = object({
-    cloudwatch    = optional(list(string)),
-    elasticsearch = optional(list(string))
-  })
-  default     = {}
-  description = "Overrides the `labels_order` for the different labels to modify ID elements appear in the `id`"
-}
-
-variable "containers" {
-  type        = list(string)
-  description = "The list of container names from your container_definition"
-  default     = null
 }
 
 variable "gosoline_metadata" {
@@ -188,5 +146,33 @@ variable "gosoline_name_patterns" {
     grafana_elasticsearch_datasource = optional(string)
   })
   description = "Define custom name patters for the gosoline provider"
+  default = {
+    hostname                         = "{scheme}://{app}.{group}.{env}.{metadata_domain}:{port}"
+    cloudwatch_namespace             = "{env}/{group}/{app}"
+    ecs_cluster                      = "{env}"
+    ecs_service                      = "{group}-{app}"
+    grafana_elasticsearch_datasource = "elasticsearch-{env}-logs-{group}-{app}"
+  }
+}
+
+variable "grafana_dashboard_enabled" {
+  type        = bool
+  default     = true
+  description = "Defines whether there will be a grafana dashboard (incl. datasource)"
+}
+
+variable "grafana_dashboard_url" {
+  type        = string
+  description = "Url of the grafana dashboard"
   default     = null
+}
+
+variable "label_orders" {
+  type = object({
+    cloudwatch    = optional(list(string), ["environment", "stage", "name"]),
+    ecs           = optional(list(string), ["stage", "name"]),
+    elasticsearch = optional(list(string), ["environment", "stage", "name"])
+  })
+  default     = {}
+  description = "Overrides the `labels_order` for the different labels to modify ID elements appear in the `id`"
 }

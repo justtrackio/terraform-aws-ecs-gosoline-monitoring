@@ -1,20 +1,20 @@
 provider "gosoline" {
-  metadata      = var.gosoline_metadata
+  metadata      = local.gosoline_metadata
   name_patterns = var.gosoline_name_patterns
 }
 
 provider "grafana" {
-  url  = var.grafana_dashboard_url
-  auth = var.grafana_dashboard_auth
+  url  = local.grafana_dashboard_url
+  auth = data.aws_ssm_parameter.grafana_token.value
 }
 
 provider "elasticsearch" {
-  url = var.elasticsearch_host
+  url = local.elasticsearch_host
 }
 
 provider "elasticstack" {
   elasticsearch {
-    endpoints = [var.elasticsearch_host]
+    endpoints = [local.elasticsearch_host]
     insecure  = true
   }
 }

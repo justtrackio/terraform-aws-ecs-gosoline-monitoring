@@ -4,13 +4,13 @@ module "alarm_kinsumer" {
   } }
 
   source  = "justtrackio/ecs-alarm-kinsumer/aws"
-  version = "1.0.0"
+  version = "1.0.1"
 
   alarm_description = jsonencode(merge({
     Severity    = "warning"
     Description = var.alarm_kinsumer.alarm_description
   }, module.this.tags, module.this.additional_tag_map))
-  alarm_topic_arn      = var.alarm_topic_arn
+  alarm_topic_arn      = data.aws_sns_topic.default.arn
   datapoints_to_alarm  = var.alarm_kinsumer.datapoints_to_alarm
   evaluation_periods   = var.alarm_kinsumer.evaluation_periods
   kinsumer_name        = each.value.metadata.name

@@ -4,13 +4,13 @@ module "alarm_consumer" {
   } }
 
   source  = "justtrackio/ecs-alarm-consumer/aws"
-  version = "1.0.0"
+  version = "1.0.1"
 
   alarm_description = jsonencode(merge({
     Severity    = "warning"
     Description = var.alarm_consumer.alarm_description
   }, module.this.tags, module.this.additional_tag_map))
-  alarm_topic_arn     = var.alarm_topic_arn
+  alarm_topic_arn     = data.aws_sns_topic.default.arn
   consumer_name       = each.value.metadata.name
   datapoints_to_alarm = var.alarm_consumer.datapoints_to_alarm
   evaluation_periods  = var.alarm_consumer.evaluation_periods
