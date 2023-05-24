@@ -8,7 +8,7 @@
 | <a name="requirement_elasticsearch"></a> [elasticsearch](#requirement\_elasticsearch) | 2.0.7 |
 | <a name="requirement_elasticstack"></a> [elasticstack](#requirement\_elasticstack) | 0.5.0 |
 | <a name="requirement_gosoline"></a> [gosoline](#requirement\_gosoline) | 0.0.12 |
-| <a name="requirement_grafana"></a> [grafana](#requirement\_grafana) | 1.40.0 |
+| <a name="requirement_grafana"></a> [grafana](#requirement\_grafana) | 1.40.1 |
 
 ## Providers
 
@@ -17,7 +17,7 @@
 | <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.67 |
 | <a name="provider_elasticstack"></a> [elasticstack](#provider\_elasticstack) | 0.5.0 |
 | <a name="provider_gosoline"></a> [gosoline](#provider\_gosoline) | 0.0.12 |
-| <a name="provider_grafana"></a> [grafana](#provider\_grafana) | 1.40.0 |
+| <a name="provider_grafana"></a> [grafana](#provider\_grafana) | 1.40.1 |
 
 ## Modules
 
@@ -36,13 +36,13 @@
 |------|------|
 | [elasticstack_elasticsearch_index_lifecycle.default](https://registry.terraform.io/providers/elastic/elasticstack/0.5.0/docs/resources/elasticsearch_index_lifecycle) | resource |
 | [elasticstack_elasticsearch_index_template.default](https://registry.terraform.io/providers/elastic/elasticstack/0.5.0/docs/resources/elasticsearch_index_template) | resource |
-| [grafana_dashboard.main](https://registry.terraform.io/providers/grafana/grafana/1.40.0/docs/resources/dashboard) | resource |
-| [grafana_data_source.elasticsearch](https://registry.terraform.io/providers/grafana/grafana/1.40.0/docs/resources/data_source) | resource |
-| [grafana_folder.default](https://registry.terraform.io/providers/grafana/grafana/1.40.0/docs/resources/folder) | resource |
+| [grafana_dashboard.main](https://registry.terraform.io/providers/grafana/grafana/1.40.1/docs/resources/dashboard) | resource |
+| [grafana_data_source.elasticsearch](https://registry.terraform.io/providers/grafana/grafana/1.40.1/docs/resources/data_source) | resource |
 | [aws_sns_topic.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/sns_topic) | data source |
 | [aws_ssm_parameter.grafana_token](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
 | [gosoline_application_dashboard_definition.main](https://registry.terraform.io/providers/justtrackio/gosoline/0.0.12/docs/data-sources/application_dashboard_definition) | data source |
 | [gosoline_application_metadata_definition.main](https://registry.terraform.io/providers/justtrackio/gosoline/0.0.12/docs/data-sources/application_metadata_definition) | data source |
+| [grafana_folder.default](https://registry.terraform.io/providers/grafana/grafana/1.40.1/docs/data-sources/folder) | data source |
 
 ## Inputs
 
@@ -69,14 +69,14 @@
 | <a name="input_enabled"></a> [enabled](#input\_enabled) | Set to false to prevent the module from creating any resources | `bool` | `null` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | ID element. Usually used for region e.g. 'uw2', 'us-west-2', OR role 'prod', 'staging', 'dev', 'UAT' | `string` | `null` | no |
 | <a name="input_gosoline_metadata"></a> [gosoline\_metadata](#input\_gosoline\_metadata) | Define custom metadata for the gosoline provider | <pre>object({<br>    domain    = optional(string),<br>    use_https = optional(string),<br>    port      = optional(string)<br>  })</pre> | `null` | no |
-| <a name="input_gosoline_name_patterns"></a> [gosoline\_name\_patterns](#input\_gosoline\_name\_patterns) | Define custom name patters for the gosoline provider | <pre>object({<br>    hostname                         = optional(string),<br>    cloudwatch_namespace             = optional(string),<br>    ecs_cluster                      = optional(string),<br>    ecs_service                      = optional(string),<br>    grafana_elasticsearch_datasource = optional(string)<br>  })</pre> | <pre>{<br>  "cloudwatch_namespace": "{env}/{group}/{app}",<br>  "ecs_cluster": "{env}",<br>  "ecs_service": "{group}-{app}",<br>  "grafana_elasticsearch_datasource": "elasticsearch-{env}-logs-{group}-{app}",<br>  "hostname": "{scheme}://{group}-{app}.{env}.{metadata_domain}:{port}"<br>}</pre> | no |
+| <a name="input_gosoline_name_patterns"></a> [gosoline\_name\_patterns](#input\_gosoline\_name\_patterns) | Define custom name patters for the gosoline provider | <pre>object({<br>    hostname                         = optional(string),<br>    cloudwatch_namespace             = optional(string),<br>    ecs_cluster                      = optional(string),<br>    ecs_service                      = optional(string),<br>    grafana_elasticsearch_datasource = optional(string)<br>  })</pre> | <pre>{<br>  "cloudwatch_namespace": "{env}/{group}/{app}",<br>  "ecs_cluster": "{env}",<br>  "ecs_service": "{group}-{app}",<br>  "grafana_elasticsearch_datasource": "elasticsearch-{env}-logs-{group}-{app}",<br>  "hostname": "{scheme}://{app}.{group}.{env}.{metadata_domain}:{port}"<br>}</pre> | no |
 | <a name="input_grafana_dashboard_enabled"></a> [grafana\_dashboard\_enabled](#input\_grafana\_dashboard\_enabled) | Defines whether there will be a grafana dashboard (incl. datasource) | `bool` | `true` | no |
-| <a name="input_grafana_dashboard_url"></a> [grafana\_dashboard\_url](#input\_grafana\_dashboard\_url) | Url of the grafana dashboard | `string` | `""` | no |
+| <a name="input_grafana_dashboard_url"></a> [grafana\_dashboard\_url](#input\_grafana\_dashboard\_url) | Url of the grafana dashboard | `string` | `null` | no |
 | <a name="input_grafana_elasticsearch_index_pattern"></a> [grafana\_elasticsearch\_index\_pattern](#input\_grafana\_elasticsearch\_index\_pattern) | Defines the index pattern that should be used within grafana to load dashboard data | `string` | `""` | no |
 | <a name="input_id_length_limit"></a> [id\_length\_limit](#input\_id\_length\_limit) | Limit `id` to this many characters (minimum 6).<br>Set to `0` for unlimited length.<br>Set to `null` for keep the existing setting, which defaults to `0`.<br>Does not affect `id_full`. | `number` | `null` | no |
 | <a name="input_label_key_case"></a> [label\_key\_case](#input\_label\_key\_case) | Controls the letter case of the `tags` keys (label names) for tags generated by this module.<br>Does not affect keys of tags passed in via the `tags` input.<br>Possible values: `lower`, `title`, `upper`.<br>Default value: `title`. | `string` | `null` | no |
 | <a name="input_label_order"></a> [label\_order](#input\_label\_order) | The order in which the labels (ID elements) appear in the `id`.<br>Defaults to ["namespace", "environment", "stage", "name", "attributes"].<br>You can omit any of the 6 labels ("tenant" is the 6th), but at least one must be present. | `list(string)` | `null` | no |
-| <a name="input_label_orders"></a> [label\_orders](#input\_label\_orders) | Overrides the `labels_order` for the different labels to modify ID elements appear in the `id` | <pre>object({<br>    cloudwatch    = optional(list(string), ["environment", "stage", "name"]),<br>    elasticsearch = optional(list(string), ["environment", "namespace", "stage", "name"])<br>  })</pre> | `{}` | no |
+| <a name="input_label_orders"></a> [label\_orders](#input\_label\_orders) | Overrides the `labels_order` for the different labels to modify ID elements appear in the `id` | <pre>object({<br>    cloudwatch    = optional(list(string), ["environment", "stage", "name"]),<br>    elasticsearch = optional(list(string), ["environment", "stage", "name"])<br>  })</pre> | `{}` | no |
 | <a name="input_label_value_case"></a> [label\_value\_case](#input\_label\_value\_case) | Controls the letter case of ID elements (labels) as included in `id`,<br>set as tag values, and output by this module individually.<br>Does not affect values of tags passed in via the `tags` input.<br>Possible values: `lower`, `title`, `upper` and `none` (no transformation).<br>Set this to `title` and set `delimiter` to `""` to yield Pascal Case IDs.<br>Default value: `lower`. | `string` | `null` | no |
 | <a name="input_labels_as_tags"></a> [labels\_as\_tags](#input\_labels\_as\_tags) | Set of labels (ID elements) to include as tags in the `tags` output.<br>Default is to include all labels.<br>Tags with empty values will not be included in the `tags` output.<br>Set to `[]` to suppress all generated tags.<br>**Notes:**<br>  The value of the `name` tag, if included, will be the `id`, not the `name`.<br>  Unlike other `null-label` inputs, the initial setting of `labels_as_tags` cannot be<br>  changed in later chained modules. Attempts to change it will be silently ignored. | `set(string)` | <pre>[<br>  "default"<br>]</pre> | no |
 | <a name="input_name"></a> [name](#input\_name) | ID element. Usually the component or solution name, e.g. 'app' or 'jenkins'.<br>This is the only ID element not also included as a `tag`.<br>The "name" tag is set to the full `id` string. There is no tag with the value of the `name` input. | `string` | `null` | no |
