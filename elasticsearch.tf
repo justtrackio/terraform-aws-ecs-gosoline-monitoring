@@ -81,7 +81,7 @@ resource "elasticstack_elasticsearch_index_lifecycle" "default" {
   }
 
   warm {
-    min_age = var.elasticsearch_lifecycle_policy.hot_phase_max_age
+    min_age = var.elasticsearch_lifecycle_policy.warm_phase_min_age
     set_priority {
       priority = 0
     }
