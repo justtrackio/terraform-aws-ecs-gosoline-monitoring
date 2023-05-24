@@ -1,23 +1,9 @@
 locals {
   grafana_dashboard_create            = var.grafana_dashboard_enabled && lookup(module.this.tags, "Type", null) != "scheduled" ? 1 : 0
-  grafana_elasticsearch_index_pattern = var.grafana_elasticsearch_index_pattern != "" ? var.grafana_elasticsearch_index_pattern : "logs-${module.this.stage}-${module.this.name}"
-  containers                          = var.containers != null ? var.containers : ["${module.this.stage}-${module.this.name}", "log_router"]
+  grafana_elasticsearch_index_pattern = var.grafana_elasticsearch_index_pattern != "" ? var.grafana_elasticsearch_index_pattern : "logs-${module.ecs_label.id}"
+  containers                          = var.containers != null ? var.containers : [module.ecs_label.id, "log_router"]
   elasticsearch_host                  = var.elasticsearch_host != null ? var.elasticsearch_host : "http://elasticsearch.${module.this.organizational_unit}-monitoring.${var.domain}:9200"
   grafana_dashboard_url               = var.grafana_dashboard_url != null ? var.grafana_dashboard_url : "https://grafana.${module.this.organizational_unit}-monitoring.${var.domain}"
-}
-
-data "grafana_folder" "default" {
-  title = module.this.namespace
-}
-
-data "gosoline_application_dashboard_definition" "main" {
-  count       = local.grafana_dashboard_create
-  project     = module.this.namespace
-  environment = module.this.environment
-  family      = module.this.namespace
-  application = module.this.name
-  containers  = local.containers
-  group       = module.this.stage
 }
 
 resource "grafana_dashboard" "main" {

@@ -174,6 +174,7 @@ variable "grafana_elasticsearch_index_pattern" {
 variable "label_orders" {
   type = object({
     cloudwatch    = optional(list(string), ["environment", "stage", "name"]),
+    ecs           = optional(list(string), ["stage", "name"]),
     elasticsearch = optional(list(string), ["environment", "stage", "name"])
   })
   default     = {}
