@@ -5,11 +5,6 @@ terraform {
       version = ">= 4.67"
     }
 
-    elasticsearch = {
-      source  = "phillbaker/elasticsearch"
-      version = "2.0.7"
-    }
-
     gosoline = {
       source  = "justtrackio/gosoline"
       version = "0.0.12"
