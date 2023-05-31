@@ -58,12 +58,6 @@ variable "containers" {
   default     = null
 }
 
-variable "domain" {
-  type        = string
-  description = "The domain for elasticsearch and grafana"
-  default     = null
-}
-
 variable "elasticsearch_data_stream_enabled" {
   type        = bool
   default     = true
@@ -127,44 +121,10 @@ variable "elasticsearch_lifecycle_policy" {
   }
 }
 
-variable "gosoline_metadata" {
-  type = object({
-    domain    = optional(string),
-    use_https = optional(string),
-    port      = optional(string)
-  })
-  description = "Define custom metadata for the gosoline provider"
-  default     = null
-}
-
-variable "gosoline_name_patterns" {
-  type = object({
-    hostname                         = optional(string),
-    cloudwatch_namespace             = optional(string),
-    ecs_cluster                      = optional(string),
-    ecs_service                      = optional(string),
-    grafana_elasticsearch_datasource = optional(string)
-  })
-  description = "Define custom name patters for the gosoline provider"
-  default = {
-    hostname                         = "{scheme}://{app}.{group}.{env}.{metadata_domain}:{port}"
-    cloudwatch_namespace             = "{env}/{group}/{app}"
-    ecs_cluster                      = "{env}"
-    ecs_service                      = "{group}-{app}"
-    grafana_elasticsearch_datasource = "elasticsearch-{env}-logs-{group}-{app}"
-  }
-}
-
 variable "grafana_dashboard_enabled" {
   type        = bool
   default     = true
   description = "Defines whether there will be a grafana dashboard (incl. datasource)"
-}
-
-variable "grafana_dashboard_url" {
-  type        = string
-  description = "Url of the grafana dashboard"
-  default     = null
 }
 
 variable "label_orders" {
