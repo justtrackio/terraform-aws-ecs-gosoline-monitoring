@@ -1,3 +1,10 @@
+## [2.1.0](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.0.1...v2.1.0) (2023-07-26)
+
+
+### Features
+
+* bump gosoline provider ([#29](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/issues/29)) ([075e62d](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/commit/075e62d7469b0cd8b7bafda72a1081515ac4febc))
+
 ## [2.0.1](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.0.0...v2.0.1) (2023-05-31)
 
 
