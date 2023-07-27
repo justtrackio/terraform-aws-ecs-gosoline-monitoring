@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.1.0...v2.1.1) (2023-07-27)
+
+
+### Bug Fixes
+
+* logging panel ([#32](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/issues/32)) ([6da04e9](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/commit/6da04e991d97f0a1a12dc34914a61aab533cf868))
+
 ## [2.1.0](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.0.1...v2.1.0) (2023-07-26)
 
 
