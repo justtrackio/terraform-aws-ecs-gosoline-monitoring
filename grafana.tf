@@ -20,9 +20,9 @@ resource "grafana_data_source" "elasticsearch" {
   database_name = "logs-${module.elaticsearch_label.id}"
 
   json_data_encoded = jsonencode({
-    es_version        = "8.0+"
-    time_field        = "@timestamp"
-    log_message_field = "message"
-    log_level_field   = "level"
+    esVersion       = "8.0+"
+    logLevelField   = "level"
+    logMessageField = "message"
+    timeField       = "@timestamp"
   })
 }
