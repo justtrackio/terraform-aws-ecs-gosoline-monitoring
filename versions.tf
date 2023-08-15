@@ -12,7 +12,7 @@ terraform {
 
     grafana = {
       source  = "grafana/grafana"
-      version = "1.40.1"
+      version = "2.2.0"
     }
 
     elasticstack = {
