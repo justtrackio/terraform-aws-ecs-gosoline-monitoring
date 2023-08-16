@@ -7,17 +7,17 @@ terraform {
 
     gosoline = {
       source  = "justtrackio/gosoline"
-      version = "1.0.0"
+      version = ">= 1.0.0"
     }
 
     grafana = {
       source  = "grafana/grafana"
-      version = "1.40.1"
+      version = ">= 1.40.1"
     }
 
     elasticstack = {
       source  = "elastic/elasticstack"
-      version = "0.5.0"
+      version = ">= 0.5.0"
     }
   }
 

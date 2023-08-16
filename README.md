@@ -5,18 +5,18 @@
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.0 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.67 |
-| <a name="requirement_elasticstack"></a> [elasticstack](#requirement\_elasticstack) | 0.5.0 |
-| <a name="requirement_gosoline"></a> [gosoline](#requirement\_gosoline) | 1.0.0 |
-| <a name="requirement_grafana"></a> [grafana](#requirement\_grafana) | 1.40.1 |
+| <a name="requirement_elasticstack"></a> [elasticstack](#requirement\_elasticstack) | >= 0.5.0 |
+| <a name="requirement_gosoline"></a> [gosoline](#requirement\_gosoline) | >= 1.0.0 |
+| <a name="requirement_grafana"></a> [grafana](#requirement\_grafana) | >= 1.40.1 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.67 |
-| <a name="provider_elasticstack"></a> [elasticstack](#provider\_elasticstack) | 0.5.0 |
-| <a name="provider_gosoline"></a> [gosoline](#provider\_gosoline) | 1.0.0 |
-| <a name="provider_grafana"></a> [grafana](#provider\_grafana) | 1.40.1 |
+| <a name="provider_elasticstack"></a> [elasticstack](#provider\_elasticstack) | >= 0.5.0 |
+| <a name="provider_gosoline"></a> [gosoline](#provider\_gosoline) | >= 1.0.0 |
+| <a name="provider_grafana"></a> [grafana](#provider\_grafana) | >= 1.40.1 |
 
 ## Modules
 
@@ -34,14 +34,14 @@
 
 | Name | Type |
 |------|------|
-| [elasticstack_elasticsearch_index_lifecycle.default](https://registry.terraform.io/providers/elastic/elasticstack/0.5.0/docs/resources/elasticsearch_index_lifecycle) | resource |
-| [elasticstack_elasticsearch_index_template.default](https://registry.terraform.io/providers/elastic/elasticstack/0.5.0/docs/resources/elasticsearch_index_template) | resource |
-| [grafana_dashboard.main](https://registry.terraform.io/providers/grafana/grafana/1.40.1/docs/resources/dashboard) | resource |
-| [grafana_data_source.elasticsearch](https://registry.terraform.io/providers/grafana/grafana/1.40.1/docs/resources/data_source) | resource |
+| [elasticstack_elasticsearch_index_lifecycle.default](https://registry.terraform.io/providers/elastic/elasticstack/latest/docs/resources/elasticsearch_index_lifecycle) | resource |
+| [elasticstack_elasticsearch_index_template.default](https://registry.terraform.io/providers/elastic/elasticstack/latest/docs/resources/elasticsearch_index_template) | resource |
+| [grafana_dashboard.main](https://registry.terraform.io/providers/grafana/grafana/latest/docs/resources/dashboard) | resource |
+| [grafana_data_source.elasticsearch](https://registry.terraform.io/providers/grafana/grafana/latest/docs/resources/data_source) | resource |
 | [aws_sns_topic.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/sns_topic) | data source |
-| [gosoline_application_dashboard_definition.main](https://registry.terraform.io/providers/justtrackio/gosoline/1.0.0/docs/data-sources/application_dashboard_definition) | data source |
-| [gosoline_application_metadata_definition.main](https://registry.terraform.io/providers/justtrackio/gosoline/1.0.0/docs/data-sources/application_metadata_definition) | data source |
-| [grafana_folder.default](https://registry.terraform.io/providers/grafana/grafana/1.40.1/docs/data-sources/folder) | data source |
+| [gosoline_application_dashboard_definition.main](https://registry.terraform.io/providers/justtrackio/gosoline/latest/docs/data-sources/application_dashboard_definition) | data source |
+| [gosoline_application_metadata_definition.main](https://registry.terraform.io/providers/justtrackio/gosoline/latest/docs/data-sources/application_metadata_definition) | data source |
+| [grafana_folder.default](https://registry.terraform.io/providers/grafana/grafana/latest/docs/data-sources/folder) | data source |
 
 ## Inputs
 
