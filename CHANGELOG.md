@@ -1,3 +1,10 @@
+## [2.1.2](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.1.1...v2.1.2) (2023-08-17)
+
+
+### Bug Fixes
+
+* allow-provider-versions-to-be-fixed-on-the-calling-part ([#33](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/issues/33)) ([b930f00](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/commit/b930f00cafd046b5e7a64bdd8b1ba41b3bd224b5))
+
 ## [2.1.1](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.1.0...v2.1.1) (2023-07-27)
 
 
