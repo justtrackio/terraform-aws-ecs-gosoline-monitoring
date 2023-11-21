@@ -2,7 +2,7 @@ module "alarm_scheduled" {
   count = var.alarm_enabled && lookup(module.this.tags, "Type", null) == "scheduled" ? 1 : 0
 
   source  = "justtrackio/ecs-alarm-scheduled/aws"
-  version = "1.0.1"
+  version = "1.1.0"
 
   alarm_description = jsonencode(merge({
     Severity    = "warning"
