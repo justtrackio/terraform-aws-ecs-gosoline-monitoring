@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.2.0...v2.2.1) (2023-11-21)
+
+
+### Bug Fixes
+
+* adjust provider data resource ([#50](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/issues/50)) ([16e8c64](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/commit/16e8c64127a19c6fbd12c0ca2d78c87031e6768f))
+
 ## [2.2.0](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.1.3...v2.2.0) (2023-11-21)
 
 
