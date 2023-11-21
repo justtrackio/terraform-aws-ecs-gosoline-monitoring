@@ -136,3 +136,9 @@ variable "label_orders" {
   default     = {}
   description = "Overrides the `labels_order` for the different labels to modify ID elements appear in the `id`"
 }
+
+variable "project" {
+  type        = string
+  description = "Name of the project"
+  default     = ""
+}
