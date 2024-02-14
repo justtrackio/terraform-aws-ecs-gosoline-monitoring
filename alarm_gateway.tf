@@ -1,14 +1,23 @@
 locals {
-  routes = distinct(sort([for path in length(data.gosoline_application_metadata_definition.main) > 0 ? element(data.gosoline_application_metadata_definition.main, 0).metadata.apiserver.routes : [] : path.path]))
+  servers = length(data.gosoline_application_metadata_definition.main) > 0 ? element(data.gosoline_application_metadata_definition.main, 0).metadata.httpservers : []
+  handlers = flatten([
+    for server in local.servers : [
+      for handler in server.handlers : {
+        method      = handler.method
+        path        = handler.path
+        server_name = server.name
+      }
+    ]
+  ])
 }
 
 module "alarm_gateway" {
-  for_each = { for path in local.routes : path => {
-    path = path
-  } }
+  for_each = {
+    for handler in local.handlers : "${handler.server_name}:${handler.method}:${handler.path}" => handler
+  }
 
   source  = "justtrackio/ecs-alarm-gateway/aws"
-  version = "1.1.0"
+  version = "1.2.0"
 
   alarm_description = jsonencode(merge({
     Severity    = "warning"
@@ -17,8 +26,10 @@ module "alarm_gateway" {
   alarm_topic_arn     = data.aws_sns_topic.default.arn
   datapoints_to_alarm = var.alarm_gateway.datapoints_to_alarm
   evaluation_periods  = var.alarm_gateway.evaluation_periods
+  method              = each.value.method
   path                = each.value.path
   period              = var.alarm_gateway.period
+  server_name         = each.value.server_name
   threshold           = var.alarm_gateway.success_rate_threshold
 
   label_orders = var.label_orders
