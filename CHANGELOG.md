@@ -1,3 +1,10 @@
+## [2.3.0](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.2.1...v2.3.0) (2024-02-14)
+
+
+### Features
+
+* renamed apiserver to httpserver ([#55](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/issues/55)) ([baa0df3](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/commit/baa0df3b1621141f4e3d8d90a967114cf3cbc70e))
+
 ## [2.2.1](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.2.0...v2.2.1) (2023-11-21)
 
 
