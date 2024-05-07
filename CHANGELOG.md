@@ -1,3 +1,10 @@
+## [2.3.1](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.3.0...v2.3.1) (2024-05-07)
+
+
+### Bug Fixes
+
+* kinsumers with same name crashed module ([#69](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/issues/69)) ([361cbe6](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/commit/361cbe69b6248dce6979119c7ca62b4d5edab4dc))
+
 ## [2.3.0](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.2.1...v2.3.0) (2024-02-14)
 
 
