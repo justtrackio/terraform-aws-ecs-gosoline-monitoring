@@ -127,11 +127,29 @@ variable "grafana_dashboard_enabled" {
   description = "Defines whether there will be a grafana dashboard (incl. datasource)"
 }
 
+variable "kibana_data_view_enabled" {
+  type        = bool
+  default     = true
+  description = "Defines whether there will be a kibana data view"
+}
+
+variable "kibana_space_id" {
+  type        = string
+  default     = null
+  description = "Space identifier to place the kibana data view into"
+
+  validation {
+    condition     = var.kibana_space_id == null || can(regex("^[a-zA-Z0-9\\-]+$", var.kibana_space_id))
+    error_message = "The kibana_space_id must be matchable by this pattern: \"^[a-zA-Z0-9\\-]+$\"."
+  }
+}
+
 variable "label_orders" {
   type = object({
     cloudwatch    = optional(list(string), ["environment", "stage", "name"]),
     ecs           = optional(list(string), ["stage", "name"]),
     elasticsearch = optional(list(string), ["environment", "stage", "name"])
+    kibana        = optional(list(string), ["environment", "stage", "name"])
   })
   default     = {}
   description = "Overrides the `labels_order` for the different labels to modify ID elements appear in the `id`"

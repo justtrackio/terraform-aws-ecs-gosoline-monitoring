@@ -14,10 +14,10 @@ resource "grafana_dashboard" "main" {
 resource "grafana_data_source" "elasticsearch" {
   count         = local.grafana_dashboard_create
   type          = "elasticsearch"
-  name          = "elasticsearch-${module.elaticsearch_label.id}"
+  name          = "elasticsearch-${module.elasticsearch_label.id}"
   url           = var.elasticsearch_host
   access_mode   = "proxy"
-  database_name = "logs-${module.elaticsearch_label.id}"
+  database_name = "logs-${module.elasticsearch_label.id}"
 
   json_data_encoded = jsonencode({
     esVersion       = "8.0+"
