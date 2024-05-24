@@ -9,6 +9,17 @@ locals {
       }
     ]
   ])
+  default_alarm_gateway = {
+    for handler in local.handlers : "${handler.server_name}:${handler.method}:${handler.path}" => {
+      # defaults should be the same as in justtrackio/ecs-alarm-gateway/aws
+      alarm_description      = null
+      datapoints_to_alarm    = 3
+      evaluation_periods     = 3
+      period                 = 60
+      success_rate_threshold = 99
+    }
+  }
+  alarm_gateway = merge(local.default_alarm_gateway, var.alarm_gateway)
 }
 
 module "alarm_gateway" {
@@ -21,16 +32,16 @@ module "alarm_gateway" {
 
   alarm_description = jsonencode(merge({
     Severity    = "warning"
-    Description = var.alarm_gateway.alarm_description
+    Description = local.alarm_gateway[each.key].alarm_description
   }, module.this.tags, module.this.additional_tag_map))
   alarm_topic_arn     = data.aws_sns_topic.default.arn
-  datapoints_to_alarm = var.alarm_gateway.datapoints_to_alarm
-  evaluation_periods  = var.alarm_gateway.evaluation_periods
+  datapoints_to_alarm = local.alarm_gateway[each.key].datapoints_to_alarm
+  evaluation_periods  = local.alarm_gateway[each.key].evaluation_periods
   method              = each.value.method
   path                = each.value.path
-  period              = var.alarm_gateway.period
+  period              = local.alarm_gateway[each.key].period
   server_name         = each.value.server_name
-  threshold           = var.alarm_gateway.success_rate_threshold
+  threshold           = local.alarm_gateway[each.key].success_rate_threshold
 
   label_orders = var.label_orders
   context      = module.this.context
