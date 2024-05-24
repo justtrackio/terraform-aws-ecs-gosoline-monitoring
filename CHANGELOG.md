@@ -1,3 +1,10 @@
+## [2.3.2](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.3.1...v2.3.2) (2024-05-24)
+
+
+### Bug Fixes
+
+* use maps for alarm overwrites to correctly target individual alarms ([#72](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/issues/72)) ([488fbe8](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/commit/488fbe8e2ea985683f1ad36c5025aead988cbfdc))
+
 ## [2.3.1](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.3.0...v2.3.1) (2024-05-07)
 
 
