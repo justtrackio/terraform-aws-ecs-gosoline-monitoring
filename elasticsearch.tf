@@ -1,4 +1,8 @@
-module "elaticsearch_label" {
+locals {
+  elasticsearch_index_template_name = var.elasticsearch_index_template.name != "" ? var.elasticsearch_index_template.name : "logs-${module.elasticsearch_label.id}"
+}
+
+module "elasticsearch_label" {
   source  = "justtrackio/label/null"
   version = "0.26.0"
 
@@ -8,12 +12,8 @@ module "elaticsearch_label" {
   context = module.this.context
 }
 
-locals {
-  elasticsearch_index_template_name = var.elasticsearch_index_template.name != "" ? var.elasticsearch_index_template.name : "logs-${module.elaticsearch_label.id}"
-}
-
 resource "elasticstack_elasticsearch_index_template" "default" {
-  count = module.elaticsearch_label.enabled ? 1 : 0
+  count = module.elasticsearch_label.enabled ? 1 : 0
   name  = local.elasticsearch_index_template_name
 
   priority       = var.elasticsearch_index_template.priority
@@ -66,7 +66,7 @@ resource "elasticstack_elasticsearch_index_template" "default" {
 }
 
 resource "elasticstack_elasticsearch_index_lifecycle" "default" {
-  count = module.elaticsearch_label.enabled ? 1 : 0
+  count = module.elasticsearch_label.enabled ? 1 : 0
   name  = "${local.elasticsearch_index_template_name}-policy" # name is predefined by fluentd's elasticsearch datastreams plugin
 
   hot {
