@@ -1,3 +1,10 @@
+## [2.4.0](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.3.2...v2.4.0) (2024-06-21)
+
+
+### Features
+
+* added kibana spaces and data views support ([#71](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/issues/71)) ([cabd861](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/commit/cabd8616c728db496d514b76ce8237a698752e0f))
+
 ## [2.3.2](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.3.1...v2.3.2) (2024-05-24)
 
 
