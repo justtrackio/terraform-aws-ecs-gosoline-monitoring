@@ -13,6 +13,8 @@ locals {
       evaluation_periods       = 1
       period                   = 60
       threshold_seconds_behind = 3600
+      alarm_priority_high      = "high"
+      alarm_priority_warning   = "warning"
     }
   }
   alarm_kinsumer = merge(local.default_alarm_kinsumer, var.alarm_kinsumer)
@@ -22,19 +24,21 @@ module "alarm_kinsumer" {
   for_each = local.kinsumer_metadatas
 
   source  = "justtrackio/ecs-alarm-kinsumer/aws"
-  version = "1.0.1"
+  version = "1.1.0"
 
   alarm_description = jsonencode(merge({
     Severity    = "warning"
     Description = local.alarm_kinsumer[each.key].alarm_description
   }, module.this.tags, module.this.additional_tag_map))
-  alarm_topic_arn      = data.aws_sns_topic.default.arn
-  datapoints_to_alarm  = local.alarm_kinsumer[each.key].datapoints_to_alarm
-  evaluation_periods   = local.alarm_kinsumer[each.key].evaluation_periods
-  kinsumer_name        = each.value.metadata.name
-  kinsumer_stream_name = each.value.metadata.stream_name_full
-  period               = local.alarm_kinsumer[each.key].period
-  threshold            = local.alarm_kinsumer[each.key].threshold_seconds_behind
+  alarm_topic_arn        = data.aws_sns_topic.default.arn
+  alarm_priority_high    = local.alarm_kinsumer[each.key].alarm_priority_high
+  alarm_priority_warning = local.alarm_kinsumer[each.key].alarm_priority_warning
+  datapoints_to_alarm    = local.alarm_kinsumer[each.key].datapoints_to_alarm
+  evaluation_periods     = local.alarm_kinsumer[each.key].evaluation_periods
+  kinsumer_name          = each.value.metadata.name
+  kinsumer_stream_name   = each.value.metadata.stream_name_full
+  period                 = local.alarm_kinsumer[each.key].period
+  threshold              = local.alarm_kinsumer[each.key].threshold_seconds_behind
 
   label_orders = var.label_orders
   context      = module.this.context

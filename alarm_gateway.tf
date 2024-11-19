@@ -17,6 +17,8 @@ locals {
       evaluation_periods     = 3
       period                 = 60
       success_rate_threshold = 99
+      alarm_priority_high    = "high"
+      alarm_priority_warning = "warning"
     }
   }
   alarm_gateway = merge(local.default_alarm_gateway, var.alarm_gateway)
@@ -28,20 +30,21 @@ module "alarm_gateway" {
   }
 
   source  = "justtrackio/ecs-alarm-gateway/aws"
-  version = "1.2.0"
+  version = "1.3.0"
 
   alarm_description = jsonencode(merge({
-    Severity    = "warning"
     Description = local.alarm_gateway[each.key].alarm_description
   }, module.this.tags, module.this.additional_tag_map))
-  alarm_topic_arn     = data.aws_sns_topic.default.arn
-  datapoints_to_alarm = local.alarm_gateway[each.key].datapoints_to_alarm
-  evaluation_periods  = local.alarm_gateway[each.key].evaluation_periods
-  method              = each.value.method
-  path                = each.value.path
-  period              = local.alarm_gateway[each.key].period
-  server_name         = each.value.server_name
-  threshold           = local.alarm_gateway[each.key].success_rate_threshold
+  alarm_topic_arn        = data.aws_sns_topic.default.arn
+  alarm_priority_high    = local.alarm_gateway[each.key].alarm_priority_high
+  alarm_priority_warning = local.alarm_gateway[each.key].alarm_priority_warning
+  datapoints_to_alarm    = local.alarm_gateway[each.key].datapoints_to_alarm
+  evaluation_periods     = local.alarm_gateway[each.key].evaluation_periods
+  method                 = each.value.method
+  path                   = each.value.path
+  period                 = local.alarm_gateway[each.key].period
+  server_name            = each.value.server_name
+  threshold              = local.alarm_gateway[each.key].success_rate_threshold
 
   label_orders = var.label_orders
   context      = module.this.context
