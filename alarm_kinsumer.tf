@@ -24,7 +24,7 @@ module "alarm_kinsumer" {
   for_each = local.kinsumer_metadatas
 
   source  = "justtrackio/ecs-alarm-kinsumer/aws"
-  version = "1.1.0"
+  version = "1.1.1"
 
   alarm_description = jsonencode(merge({
     Severity    = "warning"

@@ -24,7 +24,7 @@
 |------|--------|---------|
 | <a name="module_alarm_consumer"></a> [alarm\_consumer](#module\_alarm\_consumer) | justtrackio/ecs-alarm-consumer/aws | 1.2.0 |
 | <a name="module_alarm_gateway"></a> [alarm\_gateway](#module\_alarm\_gateway) | justtrackio/ecs-alarm-gateway/aws | 1.3.0 |
-| <a name="module_alarm_kinsumer"></a> [alarm\_kinsumer](#module\_alarm\_kinsumer) | justtrackio/ecs-alarm-kinsumer/aws | 1.1.0 |
+| <a name="module_alarm_kinsumer"></a> [alarm\_kinsumer](#module\_alarm\_kinsumer) | justtrackio/ecs-alarm-kinsumer/aws | 1.1.1 |
 | <a name="module_alarm_scheduled"></a> [alarm\_scheduled](#module\_alarm\_scheduled) | justtrackio/ecs-alarm-scheduled/aws | 1.2.0 |
 | <a name="module_ecs_label"></a> [ecs\_label](#module\_ecs\_label) | justtrackio/label/null | 0.26.0 |
 | <a name="module_elasticsearch_label"></a> [elasticsearch\_label](#module\_elasticsearch\_label) | justtrackio/label/null | 0.26.0 |
