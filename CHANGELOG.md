@@ -1,3 +1,10 @@
+## [2.6.1](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.6.0...v2.6.1) (2024-11-22)
+
+
+### Bug Fixes
+
+* update alarm kinsumer module ([8b00647](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/commit/8b00647598f54222e552de7bc59df30370a0bf70))
+
 ## [2.6.0](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.5.0...v2.6.0) (2024-11-19)
 
 
