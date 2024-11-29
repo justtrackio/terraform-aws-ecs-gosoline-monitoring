@@ -8,8 +8,7 @@ locals {
       evaluation_periods     = 3
       period                 = 60
       success_rate_threshold = 99
-      alarm_priority_high    = "high"
-      alarm_priority_warning = "warning"
+      alarm_levels           = ["warning", "high"]
     }
   }
   alarm_consumer = merge(local.default_alarm_consumer, var.alarm_consumer)
@@ -23,20 +22,18 @@ module "alarm_consumer" {
   }
 
   source  = "justtrackio/ecs-alarm-consumer/aws"
-  version = "1.2.0"
+  version = "1.2.1"
 
-  alarm_description = jsonencode(merge({
-    Severity    = "warning"
+  alarm_description = merge({
     Description = local.alarm_consumer[each.key].alarm_description
-  }, module.this.tags, module.this.additional_tag_map))
-  alarm_topic_arn        = data.aws_sns_topic.default.arn
-  consumer_name          = each.value.metadata.name
-  alarm_priority_high    = local.alarm_consumer[each.key].alarm_priority_high
-  alarm_priority_warning = local.alarm_consumer[each.key].alarm_priority_warning
-  datapoints_to_alarm    = local.alarm_consumer[each.key].datapoints_to_alarm
-  evaluation_periods     = local.alarm_consumer[each.key].evaluation_periods
-  period                 = local.alarm_consumer[each.key].period
-  threshold              = local.alarm_consumer[each.key].success_rate_threshold
+  }, module.this.tags, module.this.additional_tag_map)
+  alarm_topic_arn     = data.aws_sns_topic.default.arn
+  consumer_name       = each.value.metadata.name
+  alarm_levels        = local.alarm_consumer[each.key].alarm_levels
+  datapoints_to_alarm = local.alarm_consumer[each.key].datapoints_to_alarm
+  evaluation_periods  = local.alarm_consumer[each.key].evaluation_periods
+  period              = local.alarm_consumer[each.key].period
+  threshold           = local.alarm_consumer[each.key].success_rate_threshold
 
   label_orders = var.label_orders
   context      = module.this.context
