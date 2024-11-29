@@ -30,7 +30,7 @@ module "alarm_gateway" {
   }
 
   source  = "justtrackio/ecs-alarm-gateway/aws"
-  version = "1.3.0"
+  version = "1.3.1"
 
   alarm_description = jsonencode(merge({
     Description = local.alarm_gateway[each.key].alarm_description
