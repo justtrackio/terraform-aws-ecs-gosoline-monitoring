@@ -23,7 +23,7 @@ module "alarm_consumer" {
   }
 
   source  = "justtrackio/ecs-alarm-consumer/aws"
-  version = "1.2.0"
+  version = "1.2.1"
 
   alarm_description = jsonencode(merge({
     Severity    = "warning"
