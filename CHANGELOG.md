@@ -1,3 +1,10 @@
+## [2.6.2](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.6.1...v2.6.2) (2024-11-29)
+
+
+### Bug Fixes
+
+* add more alert levels ([#98](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/issues/98)) ([2c2a1cc](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/commit/2c2a1cc22ac1516b6028673c360055961af72e75))
+
 ## [2.6.1](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.6.0...v2.6.1) (2024-11-22)
 
 
