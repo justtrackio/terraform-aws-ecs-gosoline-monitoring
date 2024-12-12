@@ -1,3 +1,10 @@
+## [2.7.0](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.6.2...v2.7.0) (2024-12-12)
+
+
+### Features
+
+* gosoline metric adjustments ([#99](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/issues/99)) ([e8cb1c5](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/commit/e8cb1c5d206c4ca66316a8011f525e07b22ac5ba))
+
 ## [2.6.2](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.6.1...v2.6.2) (2024-11-29)
 
 
