@@ -1,5 +1,29 @@
 locals {
   elasticsearch_index_template_name = var.elasticsearch_index_template.name != "" ? var.elasticsearch_index_template.name : "logs-${module.elasticsearch_label.id}"
+  default_mappings = {
+    "@timestamp" = { type = "date" }
+    data_stream = {
+      properties = {
+        dataset   = { type = "constant_keyword" }
+        namespace = { type = "constant_keyword" }
+        type      = { type = "constant_keyword", value = "logs" }
+      }
+    }
+    channel             = { type = "keyword" }
+    container_id        = { type = "keyword" }
+    container_name      = { type = "keyword" }
+    ec2_instance_id     = { type = "keyword" }
+    ecs_cluster         = { type = "keyword" }
+    ecs_task_arn        = { type = "keyword" }
+    ecs_task_definition = { type = "keyword" }
+    fluentd_hostname    = { type = "keyword" }
+    level               = { type = "long" }
+    level_name          = { type = "keyword" }
+    message             = { type = "match_only_text" }
+    source              = { type = "keyword" }
+    tag                 = { type = "keyword" }
+  }
+  mapping_properties = merge(local.default_mappings, var.elasticsearch_index_template.additional_fields)
 }
 
 module "elasticsearch_label" {
@@ -38,29 +62,7 @@ resource "elasticstack_elasticsearch_index_template" "default" {
       date_detection    = true
       numeric_detection = false
       dynamic_templates = []
-      properties = {
-        "@timestamp" = { type = "date" }
-        data_stream = {
-          properties = {
-            dataset   = { type = "constant_keyword" }
-            namespace = { type = "constant_keyword" }
-            type      = { type = "constant_keyword", value = "logs" }
-          }
-        }
-        channel             = { type = "keyword" }
-        container_id        = { type = "keyword" }
-        container_name      = { type = "keyword" }
-        ec2_instance_id     = { type = "keyword" }
-        ecs_cluster         = { type = "keyword" }
-        ecs_task_arn        = { type = "keyword" }
-        ecs_task_definition = { type = "keyword" }
-        fluentd_hostname    = { type = "keyword" }
-        level               = { type = "long" }
-        level_name          = { type = "keyword" }
-        message             = { type = "match_only_text" }
-        source              = { type = "keyword" }
-        tag                 = { type = "keyword" }
-      }
+      properties        = local.mapping_properties
     })
   }
 }
