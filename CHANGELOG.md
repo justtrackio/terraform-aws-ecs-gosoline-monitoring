@@ -1,3 +1,10 @@
+## [2.7.1](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.7.0...v2.7.1) (2025-01-21)
+
+
+### Bug Fixes
+
+* use additional field mappings ([#103](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/issues/103)) ([53aee75](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/commit/53aee75a6515db2d5128b953246bf44abf0a9d56))
+
 ## [2.7.0](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.6.2...v2.7.0) (2024-12-12)
 
 
