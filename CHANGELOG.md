@@ -1,3 +1,10 @@
+## [2.7.2](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.7.1...v2.7.2) (2025-01-28)
+
+
+### Bug Fixes
+
+* adjusted elasticsearch warm phase mine age default value ([#105](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/issues/105)) ([9b96386](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/commit/9b96386d23df9d5716cdc015185e624e584fa495))
+
 ## [2.7.1](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.7.0...v2.7.1) (2025-01-21)
 
 
