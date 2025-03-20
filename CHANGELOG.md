@@ -1,3 +1,10 @@
+## [2.7.3](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.7.2...v2.7.3) (2025-03-20)
+
+
+### Bug Fixes
+
+* dont create a grafana es datasource when es is disabled ([#107](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/issues/107)) ([20b7eee](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/commit/20b7eee04ef9a09b648fa7376c92c965023254f3))
+
 ## [2.7.2](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.7.1...v2.7.2) (2025-01-28)
 
 
