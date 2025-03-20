@@ -1,7 +1,8 @@
 locals {
-  alarm_enabled            = var.alarm_enabled && lookup(module.this.tags, "Type", null) != "scheduled" ? 1 : 0
-  grafana_dashboard_create = var.grafana_dashboard_enabled && lookup(module.this.tags, "Type", null) != "scheduled" ? 1 : 0
-  containers               = var.containers != null ? var.containers : [module.ecs_label.id, "log_router"]
+  alarm_enabled             = var.alarm_enabled && lookup(module.this.tags, "Type", null) != "scheduled" ? 1 : 0
+  grafana_dashboard_create  = var.grafana_dashboard_enabled && lookup(module.this.tags, "Type", null) != "scheduled" ? 1 : 0
+  grafana_datasource_create = local.grafana_dashboard_create == 1 && var.elasticsearch_data_stream_enabled ? 1 : 0
+  containers                = var.containers != null ? var.containers : [module.ecs_label.id, "log_router"]
 }
 
 resource "grafana_dashboard" "main" {
@@ -12,7 +13,7 @@ resource "grafana_dashboard" "main" {
 }
 
 resource "grafana_data_source" "elasticsearch" {
-  count         = local.grafana_dashboard_create
+  count         = local.grafana_datasource_create
   type          = "elasticsearch"
   name          = "elasticsearch-${module.elasticsearch_label.id}"
   url           = var.elasticsearch_host
