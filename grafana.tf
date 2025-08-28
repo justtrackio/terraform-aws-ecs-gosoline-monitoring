@@ -7,7 +7,7 @@ locals {
 
 resource "grafana_dashboard" "main" {
   count       = local.grafana_dashboard_create
-  folder      = data.grafana_folder.default.id
+  folder      = data.grafana_folder.default[0].id
   overwrite   = true
   config_json = join("", data.gosoline_application_dashboard_definition.main[*].body)
 }
