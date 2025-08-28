@@ -1,3 +1,10 @@
+## [2.8.0](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.7.3...v2.8.0) (2025-08-28)
+
+
+### Features
+
+* allow to configure whether the kibana data view should be overr… ([#116](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/issues/116)) ([961db91](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/commit/961db91367ab7865966818376a2abad2e676d81d))
+
 ## [2.7.3](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.7.2...v2.7.3) (2025-03-20)
 
 
