@@ -18,6 +18,8 @@ data "gosoline_application_dashboard_definition" "main" {
 }
 
 data "grafana_folder" "default" {
+  count = local.grafana_dashboard_create
+
   title = module.this.namespace
 }
 

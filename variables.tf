@@ -137,6 +137,12 @@ variable "kibana_data_view_enabled" {
   description = "Defines whether there will be a kibana data view"
 }
 
+variable "kibana_data_view_override" {
+  type        = bool
+  default     = false
+  description = "Defines whether the data view should be overridden when one with the same name already exists"
+}
+
 variable "kibana_space_id" {
   type        = string
   default     = null

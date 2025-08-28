@@ -19,6 +19,6 @@ resource "elasticstack_kibana_data_view" "default" {
     title           = "logs-${module.elasticsearch_label.id}"
     time_field_name = "@timestamp"
   }
-  override = true
+  override = var.kibana_data_view_override
   space_id = var.kibana_space_id
 }
