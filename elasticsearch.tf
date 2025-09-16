@@ -46,12 +46,24 @@ resource "elasticstack_elasticsearch_index_template" "default" {
 
   template {
     settings = jsonencode({
-      "lifecycle.name"                   = elasticstack_elasticsearch_index_lifecycle.default[0].name
-      codec                              = "default"
-      "query.default_field"              = ["message"]
-      "routing.allocation.include._name" = var.elasticsearch_index_template.node_name
-      number_of_shards                   = var.elasticsearch_index_template.number_of_shards
-      number_of_replicas                 = var.elasticsearch_index_template.number_of_replicas
+      index = {
+        lifecycle : {
+          name = elasticstack_elasticsearch_index_lifecycle.default[0].name
+        }
+        codec              = "default"
+        number_of_shards   = var.elasticsearch_index_template.number_of_shards
+        number_of_replicas = var.elasticsearch_index_template.number_of_replicas
+        query = {
+          default_field = ["message"]
+        }
+        routing = {
+          allocation = {
+            include = {
+              _name = var.elasticsearch_index_template.node_name
+            }
+          }
+        }
+      }
     })
     mappings = jsonencode({
       dynamic = true
