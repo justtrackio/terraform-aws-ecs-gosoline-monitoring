@@ -1,3 +1,10 @@
+## [2.9.0](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.8.0...v2.9.0) (2025-09-16)
+
+
+### Features
+
+* adjust ES index template for es 9.0; ([#117](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/issues/117)) ([549c6ff](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/commit/549c6ffd5566a394862bd095ca228b356c92a516))
+
 ## [2.8.0](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.7.3...v2.8.0) (2025-08-28)
 
 
