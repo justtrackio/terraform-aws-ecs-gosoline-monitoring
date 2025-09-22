@@ -2,7 +2,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = ">= 4.67, != 5.71.0"
+      version = ">= 4.67, != 6.14.0"
     }
 
     gosoline = {
