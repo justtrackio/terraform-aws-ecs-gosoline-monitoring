@@ -1,3 +1,10 @@
+## [2.9.1](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.9.0...v2.9.1) (2025-09-22)
+
+
+### Bug Fixes
+
+* exclude 6.14.0 from aws provider version ([#118](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/issues/118)) ([46a0ab9](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/commit/46a0ab9a858e689ff6f47f77b80543334c42bd4e))
+
 ## [2.9.0](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.8.0...v2.9.0) (2025-09-16)
 
 
