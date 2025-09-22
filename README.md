@@ -4,7 +4,7 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.0 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.67, != 5.71.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.67, != 6.14.0 |
 | <a name="requirement_elasticstack"></a> [elasticstack](#requirement\_elasticstack) | >= 0.11.4 |
 | <a name="requirement_gosoline"></a> [gosoline](#requirement\_gosoline) | >= 1.0.0 |
 | <a name="requirement_grafana"></a> [grafana](#requirement\_grafana) | >= 1.40.1 |
@@ -13,7 +13,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.67, != 5.71.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.67, != 6.14.0 |
 | <a name="provider_elasticstack"></a> [elasticstack](#provider\_elasticstack) | >= 0.11.4 |
 | <a name="provider_gosoline"></a> [gosoline](#provider\_gosoline) | >= 1.0.0 |
 | <a name="provider_grafana"></a> [grafana](#provider\_grafana) | >= 1.40.1 |
