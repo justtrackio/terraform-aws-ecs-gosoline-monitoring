@@ -1,3 +1,10 @@
+## [2.9.2](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.9.1...v2.9.2) (2026-05-19)
+
+
+### Bug Fixes
+
+* avoid elasticstack 0.15.2 ([#120](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/issues/120)) ([44caf0a](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/commit/44caf0a938777f78e9b8132028f8e3d82a62e12f))
+
 ## [2.9.1](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.9.0...v2.9.1) (2025-09-22)
 
 
