@@ -1,3 +1,10 @@
+## [2.9.3](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.9.2...v2.9.3) (2026-05-19)
+
+
+### Bug Fixes
+
+* normalize ES index template provider state ([#121](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/issues/121)) ([913e538](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/commit/913e538db652c55866ec3f91f353c7ca5f03d787))
+
 ## [2.9.2](https://github.com/justtrackio/terraform-aws-ecs-gosoline-monitoring/compare/v2.9.1...v2.9.2) (2026-05-19)
 
 
