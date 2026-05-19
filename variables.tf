@@ -79,7 +79,6 @@ variable "elasticsearch_index_template" {
     additional_fields  = map(any)
     name               = string
     priority           = number
-    node_name          = string
     number_of_shards   = number
     number_of_replicas = number
   })
@@ -87,7 +86,6 @@ variable "elasticsearch_index_template" {
     additional_fields  = {}
     name               = ""
     priority           = 250
-    node_name          = "*"
     number_of_shards   = 1
     number_of_replicas = 1
   }

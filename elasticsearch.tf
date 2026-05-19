@@ -56,13 +56,6 @@ resource "elasticstack_elasticsearch_index_template" "default" {
         query = {
           default_field = ["message"]
         }
-        routing = {
-          allocation = {
-            include = {
-              _name = var.elasticsearch_index_template.node_name
-            }
-          }
-        }
       }
     })
     mappings = jsonencode({
