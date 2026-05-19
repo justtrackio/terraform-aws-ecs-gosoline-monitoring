@@ -24,6 +24,9 @@ locals {
     tag                 = { type = "keyword" }
   }
   mapping_properties = merge(local.default_mappings, var.elasticsearch_index_template.additional_fields)
+  index_template_routing_include = var.elasticsearch_index_template.node_name == "*" ? {} : {
+    _name = var.elasticsearch_index_template.node_name
+  }
 }
 
 module "elasticsearch_label" {
@@ -51,29 +54,26 @@ resource "elasticstack_elasticsearch_index_template" "default" {
           name = elasticstack_elasticsearch_index_lifecycle.default[0].name
         }
         codec              = "default"
-        number_of_shards   = var.elasticsearch_index_template.number_of_shards
-        number_of_replicas = var.elasticsearch_index_template.number_of_replicas
+        number_of_shards   = tostring(var.elasticsearch_index_template.number_of_shards)
+        number_of_replicas = tostring(var.elasticsearch_index_template.number_of_replicas)
         query = {
           default_field = ["message"]
         }
         routing = {
           allocation = {
-            include = {
-              _name = var.elasticsearch_index_template.node_name
-            }
+            include = local.index_template_routing_include
           }
         }
       }
     })
     mappings = jsonencode({
-      dynamic = true
+      dynamic = "true"
       dynamic_date_formats = [
         "strict_date_optional_time",
         "yyyy/MM/dd HH:mm:ss Z||yyyy/MM/dd Z"
       ]
       date_detection    = true
       numeric_detection = false
-      dynamic_templates = []
       properties        = local.mapping_properties
     })
   }
