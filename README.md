@@ -35,9 +35,9 @@
 
 | Name | Type |
 |------|------|
-| [elasticstack_elasticsearch_index_lifecycle.default](https://registry.terraform.io/providers/elastic/elasticstack/latest/docs/resources/elasticsearch_index_lifecycle) | resource |
-| [elasticstack_elasticsearch_index_template.default](https://registry.terraform.io/providers/elastic/elasticstack/latest/docs/resources/elasticsearch_index_template) | resource |
-| [elasticstack_kibana_data_view.default](https://registry.terraform.io/providers/elastic/elasticstack/latest/docs/resources/kibana_data_view) | resource |
+| [elasticstack_elasticsearch_index_lifecycle.default](https://registry.terraform.io/providers/elastic/elasticstack/0.15.1/docs/resources/elasticsearch_index_lifecycle) | resource |
+| [elasticstack_elasticsearch_index_template.default](https://registry.terraform.io/providers/elastic/elasticstack/0.15.1/docs/resources/elasticsearch_index_template) | resource |
+| [elasticstack_kibana_data_view.default](https://registry.terraform.io/providers/elastic/elasticstack/0.15.1/docs/resources/kibana_data_view) | resource |
 | [grafana_dashboard.main](https://registry.terraform.io/providers/grafana/grafana/latest/docs/resources/dashboard) | resource |
 | [grafana_data_source.elasticsearch](https://registry.terraform.io/providers/grafana/grafana/latest/docs/resources/data_source) | resource |
 | [aws_sns_topic.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/sns_topic) | data source |

@@ -21,6 +21,7 @@ module "alarm_consumer" {
     }
   }
 
+  enabled = var.alarm_enabled
   source  = "justtrackio/ecs-alarm-consumer/aws"
   version = "1.2.1"
 

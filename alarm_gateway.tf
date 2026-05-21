@@ -28,6 +28,7 @@ module "alarm_gateway" {
     for handler in local.handlers : "${handler.server_name}:${handler.method}:${handler.path}" => handler
   }
 
+  enabled = var.alarm_enabled
   source  = "justtrackio/ecs-alarm-gateway/aws"
   version = "1.4.1"
 
