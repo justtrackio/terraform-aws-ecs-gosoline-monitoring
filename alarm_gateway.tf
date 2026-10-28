@@ -24,9 +24,9 @@ locals {
 }
 
 module "alarm_gateway" {
-  for_each = {
+  for_each = local.alarm_enabled == 1 ? {
     for handler in local.handlers : "${handler.server_name}:${handler.method}:${handler.path}" => handler
-  }
+  } : {}
 
   enabled = var.alarm_enabled
   source  = "justtrackio/ecs-alarm-gateway/aws"

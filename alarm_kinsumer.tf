@@ -20,7 +20,7 @@ locals {
 }
 
 module "alarm_kinsumer" {
-  for_each = local.kinsumer_metadatas
+  for_each = local.alarm_enabled == 1 ? local.kinsumer_metadatas : {}
 
   enabled = var.alarm_enabled
   source  = "justtrackio/ecs-alarm-kinsumer/aws"
