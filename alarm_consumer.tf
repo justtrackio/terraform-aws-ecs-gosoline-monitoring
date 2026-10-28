@@ -15,11 +15,11 @@ locals {
 }
 
 module "alarm_consumer" {
-  for_each = {
+  for_each = local.alarm_enabled == 1 ? {
     for consumer in local.consumers : consumer.name => {
       metadata = consumer
     }
-  }
+  } : {}
 
   enabled = var.alarm_enabled
   source  = "justtrackio/ecs-alarm-consumer/aws"
